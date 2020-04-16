@@ -1,0 +1,30 @@
+{
+    "name": "final_project",
+    "version": "1.0.0",
+    "description": "final project",
+    "main": "app.js",
+    "scripts": {
+        "seed": "node ./tasks/seed.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/donglin1111/CS546.git"
+    },
+    "author": "Donglin Yang",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/donglin1111/CS546/issues"
+    },
+    "homepage": "https://github.com/donglin1111/CS546#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "express-handlebars": "^4.0.3",
+        "handlebars": "^4.7.6",
+        "mongod": "^2.0.0",
+        "mongodb": "^3.5.6",
+        "npm": "^6.14.4",
+        "uuid": "^7.0.3"
+    }
+}
