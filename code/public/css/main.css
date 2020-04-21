@@ -5,10 +5,7 @@
 html,
 body {
     font-size: 14pt;
-}
-
-body {
-    background: #dedede;
+    background: #eff3f5;
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
@@ -60,45 +57,57 @@ p {
     line-height: 2;
 }
 
-.post {
-    width: 75%;
-    border-bottom: 1px dashed #333;
-}
-
-.new-post-form {
-    max-width: 300px;
-}
-
-.new-post-form .full-width-input {
-    display: block;
-    min-height: 3em;
-    margin: 10px 0;
+.top {
+    height: 50px;
     width: 100%;
+    background: rgb(189, 181, 181);
+    position: fixed;
+    top: 0;
 }
 
-label {
-    font-weight: bold;
+.top ul {
+    width: 80%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.error-list li {
-    color: #ff0000;
+.top li {
+    float: left;
+    margin-right: 50px;
 }
 
-.author-link,
-.author-link:link {
-    color: #228b22;
+.top li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /* 去除下划线 */
 }
 
-.author-link:visited {
-    font-style: italic;
-    color: saddlebrown;
+.top li a:hover {
+    background-color: #111;
 }
 
-.author-link:hover {
-    font-style: normal;
-    font-weight: 700;
+.top ul li ul {
+    width: auto;
+    background: rgb(189, 181, 181);
+    position: absolute;
+    display: none;
 }
 
-.author-link:active {
-    color: #ff0000;
+.top ul li ul li {
+    margin-right: 0;
+    float: none;
+    text-align: center;
+}
+
+.top ul li:hover ul {
+    display: block;
+}
+
+.bigtitle {
+    top: 50px;
 }
