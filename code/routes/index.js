@@ -1,14 +1,16 @@
 const homepageRoutes = require('./homepage');
-const userRoutes = require('./users');
+const newcarsRoutes = require('./newcars');
+const usedcarsRoutes = require('./usedcars');
+const offersRoutes = require('./offers');
+const servicesRoutes = require('./services');
 const path = require('path');
 
 const constructorMethod = (app) => {
     app.use('/homepage', homepageRoutes);
-    app.use('/users', userRoutes);
-    app.get('/about', (req, res) => {
-        res.sendFile(path.resolve('static/about.html'));
-    });
-
+    app.use('/newcars', newcarsRoutes);
+    app.use('/usedcars', usedcarsRoutes);
+    app.use('/offers', offersRoutes);
+    app.use('/services', servicesRoutes);
     app.use('*', (req, res) => {
         res.redirect('/homepage');
     });
