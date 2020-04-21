@@ -63,6 +63,7 @@ p {
     background: rgb(189, 181, 181);
     position: fixed;
     top: 0;
+    z-index: 999;
 }
 
 .top ul {
@@ -110,4 +111,19 @@ p {
 
 .bigtitle {
     top: 50px;
+}
+
+input {
+    color: #999;
+    font-size: 16px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(189, 181, 181);
+    line-height: 40px;
+    text-align: center;
 }

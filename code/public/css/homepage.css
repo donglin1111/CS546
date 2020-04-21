@@ -6,3 +6,7 @@ img {
 .bigtitle {
     position: relative;
 }
+
+input {
+    height: 50px;
+}
