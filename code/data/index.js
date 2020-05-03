@@ -1,4 +1,8 @@
 module.exports = {
-    users: require("./users"),
-    posts: require("./posts")
+    users: require("./User"),
+    cars: require("./Cars"),
+    grade: require("./Grade"),
+    interior: require("./Interior"),
+    comment: require("./Comment"),
+    options: require("./Options"), 
 };
