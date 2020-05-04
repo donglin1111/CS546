@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-12">
+    <link rel="stylesheet" href="/public/css/homepage.css">
+        <title id="vin">{{carInfo2.VIN}}</title>
+        <h1>Delete</h1>
+        <h1>{{carInfo2.Brand}} {{carInfo2.Model}}</h1>
+    <br>
+        <p class="VIN" id="VIN">VIN: {{carInfo2.VIN}}</p>
+
+        <p class="Brand" id="Brand">Brand: {{carInfo2.Brand}}</p>        
+
+        <p class="Model" id="Model">Model: {{carInfo2.Model}}</p>
+
+        <p class="VehicleType" id="VehicleType">VehicleType: {{carInfo2.VehicleType}}</p>
+
+        <p class="Timetomarket" id="Timetomarket">Timetomarket: {{carInfo2.Timetomarket}}</p>
+
+        <p class="Color" id="Color">Color: {{carInfo2.Color}}</p>
+
+        <p class="Grade" id="Grade">Grade: {{carInfo2.Grade}}</p>
+
+        <p class="Options" id="Options">Options: {{carInfo2.Options}}</p>
+
+        <p class="Interior" id="Interior">Interior: {{carInfo2.Interior}}</p>
+
+<script>
+    var VIN = document.getElementById(vin);
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
+<script src="/project/data/Cars.js"></script>
+
+        <button type="submit" onclick="removeOneCar(VIN)">delete</button>
+
+  </div>
+</div>

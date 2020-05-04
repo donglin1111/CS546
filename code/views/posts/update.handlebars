@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-sm-12">
+      <link rel="stylesheet" href="/public/css/homepage.css">
+        <title id="vin">{{carInfo2.VIN}}</title>
+        <h1>Update</h1>
+        <h1>{{carInfo2.Brand}} {{carInfo2.Model}}</h1>
+    <br>
+        <p class="VIN" id="VIN">VIN: {{carInfo2.VIN}}</p>
+
+        <p class="Brand" id="Brand">Brand: {{carInfo2.Brand}}</p>        
+
+        <p class="Model" id="Model">Model: {{carInfo2.Model}}</p>
+
+        <p class="VehicleType" id="VehicleType">VehicleType: {{carInfo2.VehicleType}}</p>
+
+        <p class="Timetomarket" id="Timetomarket">Timetomarket: {{carInfo2.Timetomarket}}</p>
+
+        <p class="Color" id="Color">Color: {{carInfo2.Color}}</p>
+
+        <p class="Grade" id="Grade">Grade: {{carInfo2.Grade}}</p>
+
+        <p class="Options" id="Options">Options: {{carInfo2.Options}}</p>
+
+        <p class="Interior" id="Interior">Interior: {{carInfo2.Interior}}</p>
+
+
+
+<label for="VIN">
+    new VIN
+    <input type="text" name="VIN" id="VIN2">
+</label>
+<label for="Brand">
+    new Brand
+    <input type="text" name="Brand" id="Brand2">
+</label>
+<label for="Model">
+    new Model
+    <input type="text" name="Model" id="Model2">
+</label>
+<label for="VehicleType">
+    new VehicleType
+    <input type="text" name="VehicleType" id="VehicleType2">
+</label>
+<label for="Timetomarket">
+    new Timetomarket
+    <input type="text" name="Timetomarket" id="Timetomarket2">
+</label>
+<label for="Color">
+    new Color
+    <input type="text" name="Color" id="Color2">
+</label>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script>
+    var VIN = document.getElementById(vin);
+    var bodypart;
+    var bodypart.VIN = document.getElementById(VIN2)
+    var bodypart.Brand = document.getElementById(Brand2)
+    var bodypart.Model = document.getElementById(Model2)
+    var bodypart.VehicleType = document.getElementById(VehicleType2)
+    var bodypart.Timetomarket = document.getElementById(Timetomarket2)
+    var bodypart.Color = document.getElementById(Color2)
+    </script>
+    <script src="/project/data/Cars.js"></script>
+
+<br>
+<button type="submit" onclick="updateCar(VIN,bodypart)">Update Car</button>
+
+
+
+  </div>
+</div>

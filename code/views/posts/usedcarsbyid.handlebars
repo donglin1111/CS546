@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-sm-12">
+        <title>{{carInfo2.VIN}}</title>
+        <h1>{{carInfo2.Brand}} {{carInfo2.Model}}</h1>
+    <br>
+        <p class="Brand">Brand: {{carInfo2.Brand}}</p>        
+
+        <p class="Model">Model: {{carInfo2.Model}}</p>
+
+        <p class="VehicleType">VehicleType: {{carInfo2.VehicleType}}</p>
+
+        <p class="Timetomarket">Timetomarket: {{carInfo2.Timetomarket}}</p>
+
+        <p class="Color">Color: {{carInfo2.Color}}</p>
+
+        <p class="Grade">Grade: {{carInfo2.Grade}}</p>
+
+        <p class="Options">Options: {{carInfo2.Options}}</p>
+
+        <p class="Interior">Interior: {{carInfo2.Interior}}</p>
+
+<div id="wrap">
+<div id="top">
+<p id='mode'>
+<font>Pick up mode</font>
+<span>self-collection</span>
+<span>delivery service</span>
+</p>
+<p id='color'>
+<font>color</font>
+<span>silvery</span>
+<span>golden</span>
+<span>balck</span>
+</p>
+<p id='service'>
+<font>service</font>
+<span>none</span>
+<span>Clean</span>
+<span>Cleaning + repainting</span>
+</p>
+<p id='Old or new'>
+<font>Old or new</font>
+<span>Old</span>
+<span>Not bad</span>
+<span>Almost new</span>
+</p>
+</div>
+<div id="bottom">
+<p>price: <font>$ <span id='price'>7500</span>.00</font></p>
+{{!-- <button type="submit" href="/"> contact us</button> --}}
+<a href="/">contact us</a>
+</div>
+</div>
+
+<script>
+var mSpan = document.getElementById('mode').getElementsByTagName('span'); 
+var cSpan = document.getElementById('color').getElementsByTagName('span'); 
+var rSpan = document.getElementById('service').getElementsByTagName('span'); 
+var bSpan = document.getElementById('Old or new').getElementsByTagName('span'); 
+var aSpan = document.getElementsByTagName('span'); 
+var oMode = document.getElementById('mode'); 
+var oServ = document.getElementById('service'); 
+var oNew = document.getElementById('Old or new'); 
+var oPrice = document.getElementById('price'); 
+mSpan[0].className ='on'; 
+cSpan[0].className ='on'; 
+rSpan[0].className ='on'; 
+bSpan[0].className ='on'; 
+for (var i=0; i<aSpan.length;i++) { 
+	aSpan[i].onclick = function() { 
+		var siblings = this.parentNode.children; 
+		for (var j=0; j<siblings.length;j++) { 
+			siblings[j].className =''; 
+		}
+		this.className ='on';
+		if (this.parentNode == oMode || this.parentNode == oServ || this.parentNode == oNew) { 
+			price(); 
+		}
+	}; 
+};
+function price() { 
+  var p0 = 7500;
+	var p1 = 0; 
+	var p2 = 0; 
+  var p3 = 0;
+	for (var i=0; i<mSpan.length;i++) { 
+		if (mSpan[i].className == 'on') { 
+			p1 = i?80:0; break; 
+      
+		}; 
+	}; 
+	for (var i=0; i<rSpan.length;i++) { 
+		if (rSpan[i].className == 'on') { 
+			switch (i) { 
+				case 0:p2 = 0; break; 
+				case 1:p2 = 800; break; 
+				case 2:p2 = 1600; break; 
+			}
+		}
+	}; 
+  	for (var i=0; i<bSpan.length;i++) { 
+		if (bSpan[i].className == 'on') { 
+			switch (i) { 
+				case 0:p3 = 0; break; 
+				case 1:p3 = 300; break; 
+				case 2:p3 = 700; break; 
+			}
+		}
+	}; 
+	oPrice.innerHTML = p0+p1+p2+p3; 
+}; 
+</script>
+
+        <img src="/public/images/lambo-1.jpg" alt="lambo">
+  </div>
+</div>
