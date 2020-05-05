@@ -1,16 +1,16 @@
-const mongoCollections = require('../config/mongoCollections');
+const mongoCollections = require('./mongoCollections');
 const options = mongoCollections.options;
 const ObjectID = require('mongodb').ObjectID;
-async function addOptions(bodypart){
+async function addOptions(bodypart) {
     const Name = bodypart.Name;
     const Include = bodypart.Include;
     const Price = bodypart.Price;
-    if(!Name) throw "Name cannot be null in options";
-    if(typeof Name !== "string") throw "Name is not a string type in options";
-    if(!Include) throw "Include is null in options";
-    if(!Array.isArray(Include)) throw "The include part is not array in options";
-    if(!Price) throw "Price is null in options";
-    if(typeof Price !== "string") throw "The Price is not a string in options";
+    if (!Name) throw "Name cannot be null in options";
+    if (typeof Name !== "string") throw "Name is not a string type in options";
+    if (!Include) throw "Include is null in options";
+    if (!Array.isArray(Include)) throw "The include part is not array in options";
+    if (!Price) throw "Price is null in options";
+    if (typeof Price !== "string") throw "The Price is not a string in options";
     var newOptions = {
         Name: Name,
         Include: Include,
@@ -30,7 +30,7 @@ async function getOptionsById(id) {
     }
     const optionsCollection = await options();
     const optionsInfo = await optionsCollection.findOne({ _id: id });
-    if(!optionsInfo) throw "options cannot find."
+    if (!optionsInfo) throw "options cannot find."
     return optionsInfo;
 }
 async function getAllOptionsById(VIN) {
@@ -62,7 +62,7 @@ async function removeAllOptions(VIN) {
     }
     return true;
 }
-async function updateOptions(id,bodypart){
+async function updateOptions(id, bodypart) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -71,12 +71,12 @@ async function updateOptions(id,bodypart){
     const Name = bodypart.Name;
     const Include = bodypart.Include;
     const Price = bodypart.Price;
-    if(!Name) throw "Name cannot be null in options";
-    if(typeof Name !== "string") throw "Name is not a string type in options";
-    if(!Include) throw "Include is null in options";
-    if(!Array.isArray(Include)) throw "The include part is not array in options";
-    if(!Price) throw "Price is null in options";
-    if(typeof Price !== "string") throw "The Price is not a string in options";
+    if (!Name) throw "Name cannot be null in options";
+    if (typeof Name !== "string") throw "Name is not a string type in options";
+    if (!Include) throw "Include is null in options";
+    if (!Array.isArray(Include)) throw "The include part is not array in options";
+    if (!Price) throw "Price is null in options";
+    if (typeof Price !== "string") throw "The Price is not a string in options";
     var updateOptions = {
         Name: Name,
         Include: Include,
@@ -84,7 +84,7 @@ async function updateOptions(id,bodypart){
     };
     const optionsCollection = await options();
     const optionschange = optionsCollection.updateOne({ _id: id }, { $set: updateOptions });
-    if(optionschange.modifiedCount === 0) throw "Cannot update grade by provide id";
+    if (optionschange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return optionschange;
 }
 module.exports = {

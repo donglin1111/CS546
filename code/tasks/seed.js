@@ -1,4 +1,4 @@
-const dbConnection = require('../config/mongoConnection');
+const dbConnection = require('../data/mongoConnection');
 const data = require('../data/');
 const users = data.users;
 const posts = data.posts;

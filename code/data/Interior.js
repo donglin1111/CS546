@@ -1,19 +1,19 @@
-const mongoCollections = require('../config/mongoCollections');
+const mongoCollections = require('./mongoCollections');
 const interior = mongoCollections.interior;
 const ObjectID = require('mongodb').ObjectID;
-async function addInterior(bodypart){
+async function addInterior(bodypart) {
     const Name = bodypart.Name;
     const Color = bodypart.Color;
     const DecorativeInlays = bodypart.DecorativeInlays;
     const Price = bodypart.Price;
-    if(!Name) throw "The name of interitor cannot be null in interitor";
-    if(typeof Name !== "string") throw "The name must be a string in interitor";
-    if(!Color) throw "Color is null in interitor";
-    if(!Array.isArray(Color)) throw "The color should be an array in interitor";
-    if(!DecorativeInlays) throw "The Decorative details are null in interitor";
-    if(!Array.isArray(DecorativeInlays)) throw "The Decorative details must be arrays"
-    if(!Price) throw "The price of interitor cannot be null";
-    if(typeof Price !== "string") throw "The Price must be a string in interitor";
+    if (!Name) throw "The name of interitor cannot be null in interitor";
+    if (typeof Name !== "string") throw "The name must be a string in interitor";
+    if (!Color) throw "Color is null in interitor";
+    if (!Array.isArray(Color)) throw "The color should be an array in interitor";
+    if (!DecorativeInlays) throw "The Decorative details are null in interitor";
+    if (!Array.isArray(DecorativeInlays)) throw "The Decorative details must be arrays"
+    if (!Price) throw "The price of interitor cannot be null";
+    if (typeof Price !== "string") throw "The Price must be a string in interitor";
     var newInterior = {
         Name: Name,
         Color: Color,
@@ -26,7 +26,7 @@ async function addInterior(bodypart){
     const createInterior = await getGradeById(newId);
     return createInterior;
 }
-async function getInteriorById(id){
+async function getInteriorById(id) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -34,7 +34,7 @@ async function getInteriorById(id){
     }
     const interiorCollection = await interior();
     const interiorInfo = await interiorCollection.findOne({ _id: id });
-    if(!interiorInfo) throw "Interior cannot find."
+    if (!interiorInfo) throw "Interior cannot find."
     return interiorInfo;
 }
 async function getAllInteriorById(VIN) {
@@ -66,7 +66,7 @@ async function removeAllinterior(VIN) {
     }
     return true;
 }
-async function updateInterior(id,bodypart){
+async function updateInterior(id, bodypart) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -76,14 +76,14 @@ async function updateInterior(id,bodypart){
     const Color = bodypart.Color;
     const DecorativeInlays = bodypart.DecorativeInlays;
     const Price = bodypart.Price;
-    if(!Name) throw "The name of interitor cannot be null in interitor";
-    if(typeof Name !== "string") throw "The name must be a string in interitor";
-    if(!Color) throw "Color is null in interitor";
-    if(!Array.isArray(Color)) throw "The color should be an array in interitor";
-    if(!DecorativeInlays) throw "The Decorative details are null in interitor";
-    if(!Array.isArray(DecorativeInlays)) throw "The Decorative details must be arrays"
-    if(!Price) throw "The price of interitor cannot be null";
-    if(typeof Price !== "string") throw "The Price must be a string in interitor";
+    if (!Name) throw "The name of interitor cannot be null in interitor";
+    if (typeof Name !== "string") throw "The name must be a string in interitor";
+    if (!Color) throw "Color is null in interitor";
+    if (!Array.isArray(Color)) throw "The color should be an array in interitor";
+    if (!DecorativeInlays) throw "The Decorative details are null in interitor";
+    if (!Array.isArray(DecorativeInlays)) throw "The Decorative details must be arrays"
+    if (!Price) throw "The price of interitor cannot be null";
+    if (typeof Price !== "string") throw "The Price must be a string in interitor";
     var updateinterior = {
         Name: Name,
         Color: Color,
@@ -92,7 +92,7 @@ async function updateInterior(id,bodypart){
     };
     const interiorCollection = await interior();
     const interiorchange = interiorCollection.updateOne({ _id: id }, { $set: updateinterior });
-    if(interiorchange.modifiedCount === 0) throw "Cannot update interior by provide id";
+    if (interiorchange.modifiedCount === 0) throw "Cannot update interior by provide id";
     return interiorchange;
 }
 module.exports = {

@@ -1,4 +1,4 @@
-const mongoCollections = require('../config/mongoCollections');
+const mongoCollections = require('./mongoCollections');
 const cars = mongoCollections.cars;
 const grade = mongoCollections.grade;
 const interior = mongoCollections.interior;
@@ -16,18 +16,18 @@ async function addCars(bodypart) {
     const Timetomarket = bodypart.Timetomarket;
     const Color = bodypart.Color;
 
-    if(!VIN) throw "VIN cannot be null";
-    if(typeof VIN !== "string") throw "The VIN for Cars must be a string";
-    if(!Brand) throw "Brand cannot be null";
-    if(typeof Brand !== "string") throw "The VIN for Cars must be a string";
-    if(!Model) throw "Model cannot be null";
-    if(typeof Model !== "string") throw "The Model for Cars must be a string";
-    if(!VehicleType) throw "VehicleType cannot be null";
-    if(typeof VehicleType !== "string") throw "The VehicleType for Cars must be a string";
-    if(!Timetomarket) throw "Timetomarket cannot be null";
-    if(!(/^\d{4}-\d{2}-\d{2}$/.test(Timetomarket))) throw "The Timetomarket for Cars must be a string";
-    if(!Color) throw "Color cannot be null";
-    if(!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
+    if (!VIN) throw "VIN cannot be null";
+    if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
+    if (!Brand) throw "Brand cannot be null";
+    if (typeof Brand !== "string") throw "The VIN for Cars must be a string";
+    if (!Model) throw "Model cannot be null";
+    if (typeof Model !== "string") throw "The Model for Cars must be a string";
+    if (!VehicleType) throw "VehicleType cannot be null";
+    if (typeof VehicleType !== "string") throw "The VehicleType for Cars must be a string";
+    if (!Timetomarket) throw "Timetomarket cannot be null";
+    if (!(/^\d{4}-\d{2}-\d{2}$/.test(Timetomarket))) throw "The Timetomarket for Cars must be a string";
+    if (!Color) throw "Color cannot be null";
+    if (!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
     const Grade = gradefunction.getAllGradeById(VIN);
     const Interior = interiorfunction.getAllInteriorById(VIN);
     const Options = optionsfunction.getAllOptionsById(VIN);
@@ -58,7 +58,7 @@ async function getCarById(VIN) {
     }
     const carCollection = await cars();
     const carInfo = await carCollection.findOne({ _id: id });
-    if(!carInfo) throw "Cars cannot find."
+    if (!carInfo) throw "Cars cannot find."
     return carInfo;
 }
 async function getAllCarById() {
@@ -77,9 +77,9 @@ async function removeOneCar(VIN) {
     }
     return true;
 }
-async function updateCar(id,bodypart){
+async function updateCar(id, bodypart) {
     if (!id) throw 'You must provide an id for the Car';
-    if (typeof id == "string"){
+    if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
         id = DB_id;
     }
@@ -89,18 +89,18 @@ async function updateCar(id,bodypart){
     const VehicleType = bodypart.VehicleType;
     const Timetomarket = bodypart.Timetomarket;
     const Color = bodypart.Color;
-    if(!VIN) throw "VIN cannot be null";
-    if(typeof VIN !== "string") throw "The VIN for Cars must be a string";
-    if(!Brand) throw "Brand cannot be null";
-    if(typeof Brand !== "string") throw "The VIN for Cars must be a string";
-    if(!Model) throw "Model cannot be null";
-    if(typeof Model !== "string") throw "The Model for Cars must be a string";
-    if(!VehicleType) throw "VehicleType cannot be null";
-    if(typeof VehicleType !== "string") throw "The VehicleType for Cars must be a string";
-    if(!Timetomarket) throw "Timetomarket cannot be null";
-    if(!(/^\d{4}-\d{2}-\d{2}$/.test(Timetomarket))) throw "The Timetomarket for Cars must be a string";
-    if(!Color) throw "Color cannot be null";
-    if(!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
+    if (!VIN) throw "VIN cannot be null";
+    if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
+    if (!Brand) throw "Brand cannot be null";
+    if (typeof Brand !== "string") throw "The VIN for Cars must be a string";
+    if (!Model) throw "Model cannot be null";
+    if (typeof Model !== "string") throw "The Model for Cars must be a string";
+    if (!VehicleType) throw "VehicleType cannot be null";
+    if (typeof VehicleType !== "string") throw "The VehicleType for Cars must be a string";
+    if (!Timetomarket) throw "Timetomarket cannot be null";
+    if (!(/^\d{4}-\d{2}-\d{2}$/.test(Timetomarket))) throw "The Timetomarket for Cars must be a string";
+    if (!Color) throw "Color cannot be null";
+    if (!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
     const Grade = gradefunction.getAllGradeById(VIN);
     const Interior = interiorfunction.getAllInteriorById(VIN);
     const Options = optionsfunction.getAllOptionsById(VIN);
@@ -119,7 +119,7 @@ async function updateCar(id,bodypart){
     };
     const carCollection = await cars();
     const carchange = await carCollection.updateOne({ _id: id }, { $set: updateCar });;
-    if(carchange.modifiedCount === 0) throw "Cannot update grade by provide id";
+    if (carchange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return carchange;
 }
 module.exports = {
@@ -128,4 +128,3 @@ module.exports = {
     removeOneCar,
     updateCar
 };
-

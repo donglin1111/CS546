@@ -1,13 +1,13 @@
-const mongoCollections = require('../config/mongoCollections');
+const mongoCollections = require('./mongoCollections');
 const comment = mongoCollections.comment;
 const ObjectID = require('mongodb').ObjectID;
-async function addComment(bodypart){
+async function addComment(bodypart) {
     const Name = bodypart.Name;
     const Comment = bodypart.Comment;
-    if(!Name) throw "The name of comment cannot be null in interitor";
-    if(typeof Name !== "string") throw "The name must be a string in interitor";
-    if(!Comment) throw "The comment is null";
-    if(typeof Comment !== "string") throw "The comment must be a string type";
+    if (!Name) throw "The name of comment cannot be null in interitor";
+    if (typeof Name !== "string") throw "The name must be a string in interitor";
+    if (!Comment) throw "The comment is null";
+    if (typeof Comment !== "string") throw "The comment must be a string type";
     var newComment = {
         Name: Name,
         Comment: Comment
@@ -18,7 +18,7 @@ async function addComment(bodypart){
     const createComment = await getCommentById(newId);
     return createComment;
 }
-async function getCommentById(id){
+async function getCommentById(id) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -26,7 +26,7 @@ async function getCommentById(id){
     }
     const commentCollection = await comment();
     const commentInfo = await commentCollection.findOne({ _id: id });
-    if(!commentInfo) throw "interior cannot find."
+    if (!commentInfo) throw "interior cannot find."
     return commentInfo;
 }
 async function getAllCommentById(VIN) {
@@ -58,7 +58,7 @@ async function removeAllCommentById(VIN) {
     }
     return true;
 }
-async function updateComment(id,bodypart){
+async function updateComment(id, bodypart) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -66,17 +66,17 @@ async function updateComment(id,bodypart){
     }
     const Name = bodypart.Name;
     const Comment = bodypart.Comment;
-    if(!Name) throw "The name of comment cannot be null in interitor";
-    if(typeof Name !== "string") throw "The name must be a string in interitor";
-    if(!Comment) throw "The comment is null";
-    if(typeof Comment !== "string") throw "The comment must be a string type";
+    if (!Name) throw "The name of comment cannot be null in interitor";
+    if (typeof Name !== "string") throw "The name must be a string in interitor";
+    if (!Comment) throw "The comment is null";
+    if (typeof Comment !== "string") throw "The comment must be a string type";
     var updatecomment = {
         Name: Name,
         Comment: Comment
     };
     const commentCollection = await comment();
     const commentchange = commentCollection.updateOne({ _id: id }, { $set: updatecomment });
-    if(commentchange.modifiedCount === 0) return "Cannot update comment by provide id";
+    if (commentchange.modifiedCount === 0) return "Cannot update comment by provide id";
     return commentchange;
 }
 module.exports = {

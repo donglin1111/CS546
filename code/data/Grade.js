@@ -1,16 +1,16 @@
-const mongoCollections = require('../config/mongoCollections');
+const mongoCollections = require('./mongoCollections');
 const grade = mongoCollections.grade;
 const ObjectID = require('mongodb').ObjectID;
-async function addGrade(bodypart){
+async function addGrade(bodypart) {
     VIN = bodypart.VIN;
     Name = bodypart.Name;
     Details = bodypart.Details;
     Price = bodypart.Price;
-    if(!Name) throw "The name for grading is null";
-    if(typeof Name !== "string") throw "The name of grading is not a string";
-    if(!Array.isArray(Details)) throw "The Deatils is not a list";
-    if(!Price) throw "The price for the grading cannot be null";
-    if(typeof Price !== "string") throw "The price of grading is not a string";
+    if (!Name) throw "The name for grading is null";
+    if (typeof Name !== "string") throw "The name of grading is not a string";
+    if (!Array.isArray(Details)) throw "The Deatils is not a list";
+    if (!Price) throw "The price for the grading cannot be null";
+    if (typeof Price !== "string") throw "The price of grading is not a string";
     var newGrade = {
         VIN: VIN,
         Name: Name,
@@ -31,7 +31,7 @@ async function getGradeById(id) {
     }
     const gradeCollection = await grade();
     const gradeInfo = await gradeCollection.findOne({ _id: id });
-    if(!gradeInfo) throw "Grade cannot find."
+    if (!gradeInfo) throw "Grade cannot find."
     return gradeInfo;
 }
 async function getAllGradeById(VIN) {
@@ -63,7 +63,7 @@ async function removeAllGrade(VIN) {
     }
     return true;
 }
-async function updateGrade(id,bodypart){
+async function updateGrade(id, bodypart) {
     if (!id) throw 'You must provide an id to search the interior';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -72,11 +72,11 @@ async function updateGrade(id,bodypart){
     const Name = bodypart.Name;
     const Details = bodypart.Details;
     const Price = bodypart.Price;
-    if(!Name) throw "The name for grading is null";
-    if(typeof Name !== "string") throw "The name of grading is not a string";
-    if(!Array.isArray(Details)) throw "The Deatils is not a list";
-    if(!Price) throw "The price for the grading cannot be null";
-    if(typeof Price !== "string") throw "The price of grading is not a string";
+    if (!Name) throw "The name for grading is null";
+    if (typeof Name !== "string") throw "The name of grading is not a string";
+    if (!Array.isArray(Details)) throw "The Deatils is not a list";
+    if (!Price) throw "The price for the grading cannot be null";
+    if (typeof Price !== "string") throw "The price of grading is not a string";
     var updategrade = {
         Name: Name,
         Details: Details,
@@ -84,7 +84,7 @@ async function updateGrade(id,bodypart){
     };
     const gradeCollection = await grade();
     const gradechange = gradeCollection.updateOne({ _id: id }, { $set: updategrade });
-    if(gradechange.modifiedCount === 0) throw "Cannot update grade by provide id";
+    if (gradechange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return gradechange;
 }
 module.exports = {
