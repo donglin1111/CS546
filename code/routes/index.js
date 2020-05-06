@@ -4,7 +4,7 @@ const usedcarsRoutes = require('./usedcars');
 const offersRoutes = require('./offers');
 const servicesRoutes = require('./services');
 const loginRoutes = require("./login");
-const addcarRoutes = require("./addcar");
+const updateRoutes = require("./update");
 const path = require('path');
 
 const constructorMethod = (app) => {
@@ -14,7 +14,7 @@ const constructorMethod = (app) => {
     app.use('/offers', offersRoutes);
     app.use('/services', servicesRoutes);
     app.use('/login', loginRoutes);
-    app.use('/addcar', addcarRoutes);
+    app.use('/update', updateRoutes);
     app.use('*', (req, res) => {
         res.redirect('/homepage');
     });
