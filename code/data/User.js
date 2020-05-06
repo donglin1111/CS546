@@ -21,7 +21,21 @@ async function addUser(bodypart) {
     if (!lastName) throw "The last name for user is null";
     if (typeof lastName !== "string") throw "The first name for user must be a string";
     if (!DateofBirth) throw "The date of birth is null";
-    if (!(/^\d{4}-\d{2}-\d{2}$/.test(DateofBirth))) throw "The Date of birth is not in format"
+    Timearry = Timetomarket.split('/');
+    if (Timearry.length > 3) throw "Wrong type of Time format";
+    d = parseInt(Timearry[0]);
+    m = parseInt(Timearry[1]);
+    y = parseInt(Timearry[2]);
+    if(m > 12 || m < 1) throw "The month is invalid of Timetomarket";
+    if(m == 1|| m == 3|| m == 5|| m == 7|| m == 8|| m == 10|| m == 12){
+        if(d > 31) throw "The day is invalid of Timetomarket";
+    }
+    if(m == 4|| m == 6|| m == 9|| m == 11){
+        if(d > 30) throw "The day is invalid of Timetomarket";
+    }
+    if(m == 2){
+        if(d > 28) throw "The day is invalid of Timetomarket";
+    }
     if (typeof DateofBirth !== "string") throw "The first name for user must be a string";
     if (!SSN) throw "SSN number is null";
     if (typeof SSN !== "string") throw "The SSN number must be a string";

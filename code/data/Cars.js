@@ -15,7 +15,7 @@ async function addCars(bodypart) {
     const VehicleType = bodypart.VehicleType;
     const Timetomarket = bodypart.Timetomarket;
     const Color = bodypart.Color;
-
+    const Usedcar = bodypart.Use;
     if (!VIN) throw "VIN cannot be null";
     if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
     if (!Brand) throw "Brand cannot be null";
@@ -25,9 +25,23 @@ async function addCars(bodypart) {
     if (!VehicleType) throw "VehicleType cannot be null";
     if (typeof VehicleType !== "string") throw "The VehicleType for Cars must be a string";
     if (!Timetomarket) throw "Timetomarket cannot be null";
-    if (!(/^\d{4}-\d{2}-\d{2}$/.test(Timetomarket))) throw "The Timetomarket for Cars must be a string";
+    Timearry = Timetomarket.split('/');
+    if (Timearry.length > 3) throw "Wrong type of Time format";
+    d = parseInt(Timearry[0]);
+    m = parseInt(Timearry[1]);
+    y = parseInt(Timearry[2]);
+    if (m > 12 || m < 1) throw "The month is invalid of Timetomarket";
+    if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+        if (d > 31) throw "The day is invalid of Timetomarket";
+    }
+    if (m == 4 || m == 6 || m == 9 || m == 11) {
+        if (d > 30) throw "The day is invalid of Timetomarket";
+    }
+    if (m == 2) {
+        if (d > 28) throw "The day is invalid of Timetomarket";
+    }
     if (!Color) throw "Color cannot be null";
-    if (!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
+    if (!Usedcar) throw "Usedcar is null";
     const Grade = gradefunction.getAllGradeById(VIN);
     const Interior = interiorfunction.getAllInteriorById(VIN);
     const Options = optionsfunction.getAllOptionsById(VIN);
@@ -39,6 +53,7 @@ async function addCars(bodypart) {
         VehicleType: VehicleType,
         Timetomarket: Timetomarket,
         Color: Color,
+        Usedcar: Usedcar,
         Grade: Grade,
         Options: Options,
         Interior: Interior,
@@ -50,7 +65,7 @@ async function addCars(bodypart) {
     const createCar = await getCarById(newId)
     return createCar;
 }
-async function getCarById(VIN) {
+async function getCarById(id) {
     if (!id) throw 'You must provide an id to search the user';
     if (typeof id == "string") {
         const DB_id = ObjectID.createFromHexString(id);
@@ -61,7 +76,7 @@ async function getCarById(VIN) {
     if (!carInfo) throw "Cars cannot find."
     return carInfo;
 }
-async function getAllCarById() {
+async function getAllCar() {
     if (!VIN) throw 'You must provide an VIN to search the grade';
     const carCollection = await cars();
     const carInfo = await carCollection.find({}).toArray();
@@ -124,7 +139,7 @@ async function updateCar(id, bodypart) {
 }
 module.exports = {
     addCars,
-    getAllCarById,
+    getAllCar,
     removeOneCar,
     updateCar
 };
