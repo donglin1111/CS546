@@ -1,14 +1,23 @@
 const dbConnection = require('../data/mongoConnection');
 const data = require('../data/');
 const users = data.users;
-const posts = data.posts;
+const grade= data.grade;
 const newcar = data.cars;
-
+newcar = {
+    VIN: "7J3ZZ56Y78230003",
+    Brand: "audi",
+    Model:"Q8",
+    VehicleType:"SUV",
+    timetomarket: "08/12/2020",
+    color:["black","blue","white","grey"],
+}
 async function main() {
     const db = await dbConnection();
 
     await db.dropDatabase();
-
+    await newcar.addCars(newcar);
+    cars = await newcar.getAllCarById();
+    console.log(cars);
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 
     // await posts.addPost(
