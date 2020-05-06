@@ -42,7 +42,6 @@ async function addCars(bodypart) {
         if (d > 28) throw "The day is invalid of Timetomarket";
     }
     if (!Color) throw "Color cannot be null";
-    if (!Array.isArray(Color)) throw "The VehicleType for Cars must be a string";
     if (!Usedcar) throw "Usedcar is null";
     const Grade = gradefunction.getAllGradeById(VIN);
     const Interior = interiorfunction.getAllInteriorById(VIN);
