@@ -10,3 +10,10 @@ img {
 input {
     height: 50px;
 }
+
+.login-info {
+    height: 400px;
+    position: absolute;
+    left: 40%;
+    top: 100%;
+}
