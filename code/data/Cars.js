@@ -9,7 +9,6 @@ const optionsfunction = require('./Options');
 const commentfunction = require('./Comment');
 const ObjectID = require('mongodb').ObjectID;
 async function addCars(bodypart) {
-    console.log(bodypart);
     const VIN = bodypart.VIN;
     const Brand = bodypart.Brand;
     const Model = bodypart.Model;
