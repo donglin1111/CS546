@@ -1,5 +1,6 @@
 img {
-    max-width: 100%;
+    max-width: 800px;
+    max-height: 650px;
     margin: auto;
 }
 
@@ -15,4 +16,23 @@ input {
     position: absolute;
     left: 40%;
     top: 200%;
+}
+
+.company_name {
+    left: 40%;
+}
+
+
+/* 
+.carousel-inner {
+    width: 600px;
+    height: 800px;
+} */
+
+.company_name {
+    text-align: center
+}
+
+p {
+    font-size: 25px;
 }
