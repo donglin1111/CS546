@@ -28,6 +28,7 @@ h6 {
 }
 
 h1 {
+    color: #ffffff;
     font-size: 2rem;
 }
 
@@ -52,6 +53,7 @@ h6 {
 }
 
 p {
+    color: #ffffff;
     font-size: 1rem;
     line-height: 2;
 }
@@ -62,7 +64,7 @@ p {
     background: rgb(189, 181, 181);
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 20;
 }
 
 .top ul {
