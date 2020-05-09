@@ -1,24 +1,61 @@
-<section>
+{{!-- <section>
   <link rel="stylesheet" href="/public/css/homepage.css">
   <div class="bigtitle">
       <h1 style="text-align:center">STEVENS MOTORCARS</h1>
-        <form action="/login" method="POST" id="login-form">
+        <form action="/login" method="POST" id="login-form"> --}}
   {{!-- {{#if error}}
      <p id="error" class="error">{{{info}}}</p>
   {{/if}} --}}
-  <div class="login-info">
-    <div>
-    <label for="username">UserName</label>
-    <input type="text" id="username" name="username">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Login form</title>
+</head>
+
+<body>
+
+    <nav id="sectionTabs" class="nav nav-tabs nav-justified">
+        <a class="nav-item nav-link active" href="#auth" data-toggle="tab">Authentication</a>        
+    </nav>
+
+    <div class="container">
+        <div id="sectionTabsContent" class="row justify-content-center tab-content">
+
+            <div role="tabpanel" class="col-8 align-self-center tab-pane fade show active card bg-light" id="auth">
+
+                <form id="ajax-login" class="card-body" method="post" action="http://localhost:3000/api/users">
+                    <fieldset class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </fieldset>
+                    <div class="form-group justify-content-around row">
+                        <button type="submit" class="submit-btn btn btn-primary col-5" style="background-color:#0072ee" id="login" name="login">Login</button>                      
+                    </div>
+                </form>
+            </div>        
+
+        </div>
     </div>
-    <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-    </div>
-    <div>
-    <button type="submit" class="login">login</button>
-    </div>
-  </div>
-</form>
-  </div>
-</section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="app.js"></script>
+</body>
