@@ -2,8 +2,8 @@ const dbConnection = require('../data/mongoConnection');
 const data = require('../data/');
 const users = data.users;
 const grade= data.grade;
-const cars = data.cars;
-const newcar = {
+const newcar = data.cars;
+newcar = {
     VIN: "7J3ZZ56Y78230003",
     Brand: "audi",
     Model:"Q8",
@@ -13,18 +13,27 @@ const newcar = {
 }
 async function main() {
     const db = await dbConnection();
-    await db.dropDatabase();
-    const newcar = await cars.addCars("7J3ZZ56Y78230003",
-        "audi",
-        "Q8",
-        "SUV",
-        "08/12/2020",
-        ["black","blue","white","grey"],
-        "yes"
-        )
-    carss = await newcar.getAllCarById();
-    console.log(carss);
 
+    await db.dropDatabase();
+    await newcar.addCars(newcar);
+    cars = await newcar.getAllCarById();
+    console.log(cars);
+    // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
+
+    // await posts.addPost(
+    //     'Using the seed',
+    //     'We use the seed to have some initial data so we can just focus on servers this week', [],
+    //     id
+    // );
+    // await posts.addPost('Using routes', 'The purpose of today is to simply look at some GET routes', [], id);
+
+    // const aiden = await users.addUser('Aiden', 'Hill');
+    // await posts.addPost("Aiden's First Post", "I'm 6 months old, I can't blog1", [], aiden._id);
+    // await posts.addPost(
+    //     "Aiden's Second Post",
+    //     "I'm still 6 months old, I told you already, I can't blog1", [],
+    //     aiden._id
+    // );
     console.log('Done seeding database');
     await db.serverConfig.close();
 }
