@@ -64,7 +64,7 @@ async function addCars(bodypart) {
     const newId = carInfo.insertedId;
     const createCar = await getCarById(newId)
     return createCar;
-}
+};
 async function getCarById(id) {
     if (!id) throw 'You must provide an id to search the user';
     if (typeof id == "string") {
@@ -75,14 +75,14 @@ async function getCarById(id) {
     const carInfo = await carCollection.findOne({ _id: id });
     if (!carInfo) throw "Cars cannot find."
     return carInfo;
-}
+};
 async function getAllCar() {
     if (!VIN) throw 'You must provide an VIN to search the grade';
     const carCollection = await cars();
     const carInfo = await carCollection.find({}).toArray();
     //if(!carInfo) return "Cars cannot find.";
     return carInfo;
-}
+};
 async function removeOneCar(VIN) {
     if (!VIN) throw 'You must provide an VIN to search the grade';
     const carCollection = await cars();
@@ -91,7 +91,7 @@ async function removeOneCar(VIN) {
         throw "Could not delete car with provide VIN";
     }
     return true;
-}
+};
 async function updateCar(id, bodypart) {
     if (!id) throw 'You must provide an id for the Car';
     if (typeof id == "string") {
@@ -136,7 +136,7 @@ async function updateCar(id, bodypart) {
     const carchange = await carCollection.updateOne({ _id: id }, { $set: updateCar });;
     if (carchange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return carchange;
-}
+};
 module.exports = {
     addCars,
     getAllCar,

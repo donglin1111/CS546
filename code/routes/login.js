@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("./users");
 // const data = require("../data");
+const cars = require('../data/Cars');
 const bcrypt = require("bcryptjs");
 
 router.get("/", (req, res) => {
@@ -41,6 +42,34 @@ router.post('/', async(req, res) => {
 router.get("/private", (req, res) => {
     if (req.session.user) {
         res.render("login/private", { user: req.session.user });
+    } else {
+        res.render("login/error");
+    }
+});
+
+router.get("/addcar", (req, res) => {
+    if (req.session.user) {
+        res.render("login/addcar", { user: req.session.user });
+    } else {
+        res.render("login/error");
+    }
+});
+
+router.post('/addcar', async(req, res) => {
+    if (req.body) {
+        let body = req.body;
+        console.log("carInfo");
+        cars.addCars(body);
+        res.redirect('/login');
+        // console.log(carInfo);
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.get("/addoffer", (req, res) => {
+    if (req.session.user) {
+        res.render("login/addoffer", { user: req.session.user });
     } else {
         res.render("login/error");
     }
