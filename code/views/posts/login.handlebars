@@ -1,24 +1,17 @@
-<section>
-  <link rel="stylesheet" href="/public/css/homepage.css">
-  <div class="bigtitle">
-      <h1 style="text-align:center">STEVENS MOTORCARS</h1>
-        <form action="/login" method="POST" id="login-form">
-  {{!-- {{#if error}}
-     <p id="error" class="error">{{{info}}}</p>
-  {{/if}} --}}
-  <div class="login-info">
-    <div>
-    <label for="username">UserName</label>
-    <input type="text" id="username" name="username">
+    <link rel="stylesheet" href="/public/css/login.css">
+    <div class="login">
+        <h2>Dealer Login</h2>
+        <form action="/login" method="post" id="login-form" class="login-form">
+		{{#if error}}
+            <p id="error" class="error"> {{{info}}}</p>
+        {{/if}}
+        <input type="text" id="username" name="username" placeholder="Username" required ><br><br/>
+        <input type="password" id="password" name="password" placeholder="Password"  required><br><br/>
+		<button type="submit" id="submit" class="button">Submit</button>
+		</form>
     </div>
-    <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-    </div>
-    <div>
-    <button type="submit" class="login">login</button>
-    </div>
-  </div>
-</form>
-  </div>
-</section>
+  <div class="backgroundvideo">
+    <video controls autoplay muted>
+    <source src="/public/video/background2.mp4" type="video/mp4">
+    </video>
+   </div>
