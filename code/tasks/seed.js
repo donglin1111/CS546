@@ -1,5 +1,6 @@
 const dbConnection = require('../config/mongoConnection');
 const data = require('../data/');
+<<<<<<< HEAD
 const cars = data.cars;
 
 car = {
@@ -11,10 +12,16 @@ car = {
     Color: ["black", "blue", "white", "grey"],
     Use: "Yes"
 }
+=======
+const users = data.users;
+const grade= data.grade;
+const cars = data.cars;
+
+>>>>>>> d7e8ab5a61c3ed98252b5ff61464944521cebd95
 async function main() {
     const db = await dbConnection();
-
     await db.dropDatabase();
+<<<<<<< HEAD
     await cars.addCars(car);
     console.log(cars);
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
@@ -25,14 +32,18 @@ async function main() {
     //     id
     // );
     // await posts.addPost('Using routes', 'The purpose of today is to simply look at some GET routes', [], id);
+=======
+    const newcar = await cars.addCars("7J3ZZ56Y78230003",
+        "audi",
+        "Q8",
+        "SUV",
+        "08/12/2020",
+        ["black","blue","white","grey"],
+        )
+    carss = await newcar.getAllCarById();
+    console.log(carss);
+>>>>>>> d7e8ab5a61c3ed98252b5ff61464944521cebd95
 
-    // const aiden = await users.addUser('Aiden', 'Hill');
-    // await posts.addPost("Aiden's First Post", "I'm 6 months old, I can't blog1", [], aiden._id);
-    // await posts.addPost(
-    //     "Aiden's Second Post",
-    //     "I'm still 6 months old, I told you already, I can't blog1", [],
-    //     aiden._id
-    // );
     console.log('Done seeding database');
     await db.serverConfig.close();
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:code/views/login/addcar.handlebars
 <style>
     p{color: black;}
 </style>
@@ -62,3 +63,47 @@
 	</div>
 	
  <script src="/public/js/private.js"></script>
+=======
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+  
+  <form action="/update-result" method="post">
+    <label for="id">
+        Please enter the id:
+        <input type="text" name="id"  placeholder="id" id="id">
+    </label><br>
+    <label for="VIN">
+        new VIN: 
+        <input type="text" name="VIN" id="VIN">
+    </label><br>
+    <label for="Brand">
+        new Brand: 
+        <input type="text" name="Brand" id="Brand">
+    </label><br>
+    <label for="Model">
+        new Model: 
+        <input type="text" name="Model" id="Model">
+    </label><br>
+    <label for="VehicleType">
+        new VehicleType: 
+        <input type="text" name="VehicleType" id="VehicleType">
+    </label><br>
+    <label for="Timetomarket">
+        new Timetomarket: 
+        <input type="text" name="Timetomarket" id="Timetomarket">
+    </label><br>
+    <label for="Color">
+        new Color: 
+        <input type="checkbox" name="Color" value="red" class="Color" />Red
+        <input type="checkbox" name="Color" value="green" class="Color" />Green
+        <input type="checkbox" name="Color" value="black" class="Color" />Black
+        <input type="checkbox" name="Color" value="white" class="Color" />White
+        <input type="checkbox" name="Color" value="blue" class="Color" />Blue
+    </label><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</article>
+>>>>>>> d7e8ab5a61c3ed98252b5ff61464944521cebd95:code/views/posts/update.handlebars

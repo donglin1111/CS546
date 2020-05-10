@@ -1,0 +1,14 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+
+  <p class={{class}}>VIN: {{VIN}}</p>
+  {{#if IsDelete}}
+    <p>Congratulate! VIN: '{{VIN}}' is deleted</p>
+  {{else}}
+    <p>Sorry. VIN: '{{VIN}}' is not deleted</p>
+  {{/if}}
+    <a href="/delete">Try another car</a>
+</article>
