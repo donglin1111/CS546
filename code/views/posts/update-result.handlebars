@@ -1,0 +1,14 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+
+  <p class={{class}}>id: {{id}}</p>
+  {{#if IsUpdate}}
+    <p>Congratulate! id: '{{id}}' is updated</p>
+  {{else}}
+    <p>Sorry. id: '{{id}}' is not updated</p>
+  {{/if}}
+    <a href="/update">Try another car</a>
+</article>
