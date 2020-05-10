@@ -8,6 +8,7 @@ const interiorfunction = require('./Interior');
 const optionsfunction = require('./Options');
 const commentfunction = require('./Comment');
 const ObjectID = require('mongodb').ObjectID;
+
 async function addCars(bodypart) {
     const VIN = bodypart.VIN;
     const Brand = bodypart.Brand;
@@ -137,9 +138,9 @@ async function updateCar(id, bodypart) {
     if (carchange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return carchange;
 };
-module.exports = {
-    addCars,
-    getAllCar,
-    removeOneCar,
-    updateCar
-};
+// module.exports = {
+//     addCars,
+//     getAllCar,
+//     removeOneCar,
+//     updateCar
+// };
