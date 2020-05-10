@@ -3,14 +3,7 @@ const data = require('../data/');
 const users = data.users;
 const grade= data.grade;
 const cars = data.cars;
-const newcar = {
-    VIN: "7J3ZZ56Y78230003",
-    Brand: "audi",
-    Model:"Q8",
-    VehicleType:"SUV",
-    timetomarket: "08/12/2020",
-    color:["black","blue","white","grey"],
-}
+
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
@@ -20,7 +13,6 @@ async function main() {
         "SUV",
         "08/12/2020",
         ["black","blue","white","grey"],
-        "yes"
         )
     carss = await newcar.getAllCarById();
     console.log(carss);
