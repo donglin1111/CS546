@@ -1,76 +1,27 @@
-const mongoCollections = require('./mongoCollections');
+const mongoCollections = require('../config/mongoCollections');
 const user = mongoCollections.users;
 const ObjectID = require('mongodb').ObjectID;
+const bcrypt = require("bcryptjs");
+const saltround = 5;
 async function addUser(bodypart) {
-    const firstName = bodypart.firstName;
-    const lastName = bodypart.lastName;
-    const DateofBirth = bodypart.DateofBirth;
-    const SSN = bodypart.SSN;
-    const Email = bodypart.Email;
-    const PhoneNum = bodypart.PhoneNum;
-    const Gender = bodypart.Gender;
-    const Address = bodypart.Address;
-    const State = bodypart.State;
-    const Zipcode = bodypart.Zipcode;
-    const IsDealer = bodypart.IsDealer;
-    const Age = bodypart.Age;
-    const hashedPassword = bodypart.hashedPassword;
-    const purchaseHistory = bodypart.purchaseHistory;
+    const userName = bodypart.Username;
+    const firstName = bodypart.Firstname;
+    const lastName = bodypart.Lastname;
+    const Password = bodypart.Password;
+    const hashedPassword = await bcrypt.hash(Password, saltround);
+    if (!userName) throw "The user name for user is null";
+    if (typeof userName !== "string") throw "The user name for user must be a string";
     if (!firstName) throw "The first name for user is null";
     if (typeof firstName !== "string") throw "The first name for user must be a string";
     if (!lastName) throw "The last name for user is null";
-    if (typeof lastName !== "string") throw "The first name for user must be a string";
-    if (!DateofBirth) throw "The date of birth is null";
-    Timearry = Timetomarket.split('/');
-    if (Timearry.length > 3) throw "Wrong type of Time format";
-    d = parseInt(Timearry[0]);
-    m = parseInt(Timearry[1]);
-    y = parseInt(Timearry[2]);
-    if(m > 12 || m < 1) throw "The month is invalid of Timetomarket";
-    if(m == 1|| m == 3|| m == 5|| m == 7|| m == 8|| m == 10|| m == 12){
-        if(d > 31) throw "The day is invalid of Timetomarket";
-    }
-    if(m == 4|| m == 6|| m == 9|| m == 11){
-        if(d > 30) throw "The day is invalid of Timetomarket";
-    }
-    if(m == 2){
-        if(d > 28) throw "The day is invalid of Timetomarket";
-    }
-    if (typeof DateofBirth !== "string") throw "The first name for user must be a string";
-    if (!SSN) throw "SSN number is null";
-    if (typeof SSN !== "string") throw "The SSN number must be a string";
-    if (!Email) throw "Email for user is null";
-    if (typeof Email !== "string") throw "The Email must be a string";
-    if (!PhoneNum) throw "Phonenumber is null";
-    if (typeof PhoneNum !== "string") throw "The Phonenumber must be a string";
-    if (!Gender) throw "Gender for user is null";
-    if (typeof Gender !== "string") throw "The Gender must be a string";
-    if (!Address) throw "address for user is null";
-    if (typeof Address !== "string") throw "The address must be a string";
-    if (!State) throw "Email for user is null";
-    if (typeof State !== "string") throw "The State must be a string";
-    if (!Zipcode) throw "Zipcode for user is null";
-    if (typeof Zipcode !== "string") throw "The Zipcode must be a string";
-    if (!Age) throw "Age for user is null";
-    if (typeof Age !== "string") throw "The Age must be a string";
-
-    if (!hashedPassword) throw "hashedPassword for user is null";
+    if (typeof lastName !== "string") throw "The last name for user must be a string";
+    if (!hashedPassword) throw "The password for user must be a string";
     const userCollection = await user();
     const newUser = {
+        username: userName,
         firstName: firstName,
         lastName: lastName,
-        DateofBirth: DateofBirth,
-        SSN: SSN,
-        Email: Email,
-        PhoneNum: PhoneNum,
-        Gender: Gender,
-        Address: Address,
-        State: bodypart.State,
-        Zipcode: Zipcode,
-        IsDealer: IsDealer,
-        Age: Age,
         hashedPassword: hashedPassword,
-        purchaseHistory: purchaseHistory
     };
     const newUserInformation = await userCollection.insertOne(newUser);
     const newId = newUserInformation.insertedId;

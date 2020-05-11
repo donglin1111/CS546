@@ -1,12 +1,48 @@
 <section>
   <link rel="stylesheet" href="/public/css/homepage.css">
-  <div class="bigtitle">
-      <h1 style="text-align:center">STEVENS MOTORCARS</h1>
-      <div class="main_image1">
-        <img src="/public/images/cullinan.jpg" alt="man">
-      </div>
-      <div class="main_image2">
-        <img src="/public/images/lambo-1.jpg" alt="man">
-      </div>
-  </div>
+  <link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<div class="bigtitle">
+      <h1 style="text-align:center"><strong>STEVENS MOTORCARS</strong></h1>
+	</div>
+  <div id="myCarousel" class="carousel slide">
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol>   
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="/public/images/bentayga.jpg" alt="First slide">
+		</div>
+		<div class="item">
+			<img src="/public/images/cullinan.jpg" alt="Second slide">
+		</div>
+		<div class="item">
+			<img src="/public/images/lambo-1.jpg" alt="Third slide">
+		</div>
+    <div class="item">
+			<img src="/public/images/bugatti.jpg" alt="Third slide">
+		</div>
+	</div>
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div> 
+<div class="company_name"><h2 class="uk-text-center">
+	Why <strong>Stevens Motorcars?</strong></h2>
+</div>
+<p>Stevens Motorcars  is a car dealership company that sells best-quality pre-owned and new cars specializing in domestic brands of sedans, coupes, vans, SUVs and crossovers at competitive prices to its customers.</p>
 </section>
+<div class="backgroundvideo">
+  <video controls autoplay muted>
+  <source src="/public/video/background.mp4" type="video/mp4">
+  </video>
+</div>

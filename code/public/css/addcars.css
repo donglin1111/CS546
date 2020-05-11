@@ -1,0 +1,46 @@
+img {
+    max-width: 100%;
+    margin: auto;
+}
+#tag{
+    color: black;
+}
+.bigtitle {
+    position: relative;
+}
+input {
+    height: 50px;
+}
+.addcar-input {
+    height: 50px;
+}
+
+.login-info {
+    height: 400px;
+    position: absolute;
+    left: 40%;
+    top: 100%;
+}
+.newcar{
+    margin-top: 60px;
+}
+#butt1{
+    width: 10%;
+    height: 30px;
+    font-size: 13px;
+    margin-top: 20px;
+}
+#butt1:hover{
+    width: 10.5%;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 18px;
+    color: rgb(214, 86, 86);
+    background-color: rgb(207, 239, 248);
+}
+input{
+    height: 15px;
+    margin-top: 0px;
+    margin-left: 5px;
+}

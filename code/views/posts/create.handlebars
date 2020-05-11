@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/public/css/create.css">
+    <div class="login">
+        <h2>create new dealer</h2>
+        <form action="/create" method="post" id="login-form" class="login-form">
+		{{#if error}}
+            <p id="error" class="error"> {{{info}}}</p>
+        {{/if}}
+        <input type="text" id="username" name="Username" placeholder="Username" required ><br><br/>
+        <input type="text" id="firstname" name="Firstname" placeholder="Firstname" required ><br><br/>
+        <input type="text" id="lastname" name="Lastname" placeholder="Lastname"  required><br><br/>
+        <input type="text" id="password" name="Password" placeholder="Password"  required><br><br/>
+		<button type="submit" id="submit" class="button">Submit</button>
+		</form>
+    </div>
+  <div class="backgroundvideo">
+    <video controls autoplay muted>
+    <source src="/public/video/background2.mp4" type="video/mp4">
+    </video>
+  </div>

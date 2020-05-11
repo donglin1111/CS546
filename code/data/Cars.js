@@ -1,14 +1,14 @@
-const mongoCollections = require('./mongoCollections');
+const mongoCollections = require('../config/mongoCollections');
 const cars = mongoCollections.cars;
-const grade = mongoCollections.grade;
-const interior = mongoCollections.interior;
-const comment = mongoCollections.comment;
-const gradefunction = require('./Grade');
-const interiorfunction = require('./Interior');
-const optionsfunction = require('./Options');
-const commentfunction = require('./Comment');
+//const grade = mongoCollections.grade;
+//const interior = mongoCollections.interior;
+//const comment = mongoCollections.comment;
+//const gradefunction = require('./Grade');
+//const interiorfunction = require('./Interior');
+//const optionsfunction = require('./Options');
+//const commentfunction = require('./Comment');
 const ObjectID = require('mongodb').ObjectID;
-async function addCars(bodypart) {
+async function addCars(Owner,bodypart) {
     const VIN = bodypart.VIN;
     const Brand = bodypart.Brand;
     const Model = bodypart.Model;
@@ -16,6 +16,7 @@ async function addCars(bodypart) {
     const Timetomarket = bodypart.Timetomarket;
     const Color = bodypart.Color;
     const Usedcar = bodypart.Use;
+    if (!Owner) throw "The user cannot be null"
     if (!VIN) throw "VIN cannot be null";
     if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
     if (!Brand) throw "Brand cannot be null";
@@ -27,8 +28,8 @@ async function addCars(bodypart) {
     if (!Timetomarket) throw "Timetomarket cannot be null";
     Timearry = Timetomarket.split('/');
     if (Timearry.length > 3) throw "Wrong type of Time format";
-    d = parseInt(Timearry[0]);
-    m = parseInt(Timearry[1]);
+    m = parseInt(Timearry[0]);
+    d = parseInt(Timearry[1]);
     y = parseInt(Timearry[2]);
     if (m > 12 || m < 1) throw "The month is invalid of Timetomarket";
     if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
@@ -47,6 +48,7 @@ async function addCars(bodypart) {
     const Options = optionsfunction.getAllOptionsById(VIN);
     const Comment = commentfunction.getAllCommentById(VIN);
     var newCar = {
+        Owner: Owner.username,
         VIN: VIN,
         Brand: Brand,
         Model: Model,
@@ -76,10 +78,10 @@ async function getCarById(id) {
     if (!carInfo) throw "Cars cannot find."
     return carInfo;
 }
-async function getAllCar() {
-    if (!VIN) throw 'You must provide an VIN to search the grade';
+async function getAllCar(Owner) {
+    if (!Owner) throw 'User cannot be null';
     const carCollection = await cars();
-    const carInfo = await carCollection.find({}).toArray();
+    const carInfo = await carCollection.find({Owner:Owner.username}).toArray();
     //if(!carInfo) return "Cars cannot find.";
     return carInfo;
 }
