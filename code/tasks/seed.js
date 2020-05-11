@@ -24,6 +24,7 @@ car1 = {
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
     Color: ["black", "blue", "white", "grey"],
+    img:"Audi_Q8.jpg",
     Usedcar: true
 }
 car2 = {

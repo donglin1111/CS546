@@ -17,6 +17,7 @@ let exportedMethods = {
         const Timetomarket = bodypart.Timetomarket;
         const Color = bodypart.Color;
         const Usedcar = bodypart.Usedcar;
+        const Carimage = bodypart.img;
         if (!VIN) throw "VIN cannot be null";
         if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
         if (!Brand) throw "Brand cannot be null";
@@ -43,6 +44,8 @@ let exportedMethods = {
         }
         if (!Color) throw "Color cannot be null";
         if (typeof Usedcar !== "boolean") throw "The Usedcar for Cars must be a boolean";
+        if (!Carimage) throw "The image of car cannot be null";
+        if (typeof Carimage !== "string") throw "The image for Cars must be a string";
         const carCollection = await cars();
         var newCar = {
             VIN: VIN,
@@ -52,6 +55,7 @@ let exportedMethods = {
             Timetomarket: Timetomarket,
             Color: Color,
             Usedcar: Usedcar,
+            img: Carimage,
             _id: uuidv4()
         };
         const newInsertInformation = await carCollection.insertOne(newCar);
@@ -88,7 +92,7 @@ let exportedMethods = {
             Timetomarket: bodypart.Timetomarket,
             Color: bodypart.Color,
             Usedcar: bodypart.Usedcar,
-
+            img:bodypart.img
         };
         const carCollection = await cars();
         const updateInfo = await carCollection.updateOne({ _id: id }, { $set: updateCar });
