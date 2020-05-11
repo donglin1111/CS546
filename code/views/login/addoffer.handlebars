@@ -1,47 +1,44 @@
-<article class="new-post">
-  <h1>Make a Post</h1>
-  <form action="/posts" method="POST" class="new-post-form">
-    <label>
-      Post Title
-      <input type="text" name="title" placeholder="Post Title" value="{{post.title}}" class="full-width-input"/>
-    </label>
-    <label>
-      What number professor am I?
-      <input type="number" name="professor_ranking" placeholder="#1 professor in North America" class="full-width-input"/>
-    </label>
-    <label for="post-body">
-      Post Body
-    </label>
-    <textarea id="post-body" name="body" rows="4" placeholder="Post Content" class="full-width-input">{{post.body}}</textarea>
+ <link rel="stylesheet" href="/public/css/addoffer.css">
+ <link rel="stylesheet" href="/public/css/private.css">
+	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+	<div id="mySidenav" class="sidenav">
+  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  		<a href="/login" >Main</a>
+			<a href="/login/allcars">All Cars</a>
+			<a href="/login/addcar" >Add Car</a>
+			<a href="#" >Delete Car</a>
+			<a href="/login/update" >Update Car</a>	
+			<a href="/login/addoffer" >Add Offer</a>	
+			<a href="/login/logout">Logout</a> 
+	</div>
+	<div class="user-panel">
+		<h2>Logged in as: {{{user.lastname}}}</h2>
 
-    <label for="poster">
-      Poster
-    </label>
-    <select class="full-width-input" name="posterId">
-      <option value="">Select User...</option>
-      {{#each users}}
-        <option value="{{_id}}">{{firstName}} {{lastName}}</option>
-      {{/each}}
-    </select>
-    <label>
-      <input type="radio" name="user-test" value="1" /> One
-    </label>
-    <label>
-      <input type="radio" name="user-test" value="2" /> Two
-    </label>
-
-    <div>
-      <label>
-      <input type="checkbox" name="checkbox-test" value="first" /> First
-  </label></div>
-    <div>
-      <label>
-      <input type="checkbox" name="checkbox-test" value="second" /> Second
-  </label></div>
-    <button type="submit">Create New Post</button>
-    <button type="reset">Clear Form</button>
-    <button type="button">Click me!</button>
-  </form>
+	<div class="w3-container w3-teal">
+  <article class="new-post">
+  <form action="/login/addoffer" method="POST" class="new-post-form">
+  <div class="offercontainer">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Title</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="title" name="title" placeholder="Title.." value="{{post.title}}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="subject">Information</label>
+    </div>
+    <div class="col-75">
+      <textarea id="body" name="body" placeholder="Write something.." style="height:200px">{{post.body}}</textarea>
+    </div>
+  </div>
+  <div class="row">
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </div>
+</article>
   {{#if hasErrors}}
   <ul class="error-list">
     {{#each errors}}
@@ -51,4 +48,7 @@
     {{/each}}
   </ul>
   {{/if}}
-</article>
+		</div>
+	</div>
+	
+ <script src="/public/js/private.js"></script>

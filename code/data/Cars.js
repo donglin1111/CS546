@@ -42,7 +42,7 @@ let exportedMethods = {
             if (d > 28) throw "The day is invalid of Timetomarket";
         }
         if (!Color) throw "Color cannot be null";
-        if (!Usedcar) throw "Usedcar is null";
+        if (typeof Usedcar !== "boolean") throw "The Usedcar for Cars must be a boolean";
         const carCollection = await cars();
         var newCar = {
             VIN: VIN,

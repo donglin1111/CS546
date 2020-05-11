@@ -2,6 +2,7 @@ const dbConnection = require('../config/mongoConnection');
 const data = require('../data/');
 const newcar = data.cars;
 const users = data.users;
+const posts = data.posts;
 
 admin1 = {
     username: 'admin1',
@@ -23,7 +24,43 @@ car1 = {
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
     Color: ["black", "blue", "white", "grey"],
-    Usedcar: "Yes"
+    Usedcar: true
+}
+car2 = {
+    VIN: "SCBDG4ZG6LC076056",
+    Brand: "Bentley",
+    Model: "Continental GT V8 Convertible",
+    VehicleType: "Convertible",
+    Timetomarket: "01/12/2020",
+    Color: ["black"],
+    Usedcar: false
+}
+car3 = {
+    VIN: "WP0CB2A95KS136454",
+    Brand: "Porsche",
+    Model: "911 Carrera GTS",
+    VehicleType: "Convertible",
+    Timetomarket: "06/02/2019",
+    Color: ["red"],
+    Usedcar: false
+}
+car4 = {
+    VIN: "AK1CB2A95KS131234",
+    Brand: "Lamborghini",
+    Model: "Huracan EVO Spyder",
+    VehicleType: "Convertible",
+    Timetomarket: "02/01/2020",
+    Color: ["red"],
+    Usedcar: false
+}
+car5 = {
+    VIN: "YT9XC81B98A007066",
+    Brand: "Koenigsegg",
+    Model: "CCX",
+    VehicleType: "Convertible",
+    Timetomarket: "08/12/2008",
+    Color: ["Silver"],
+    Usedcar: true
 }
 async function main() {
     const db = await dbConnection();
@@ -34,6 +71,15 @@ async function main() {
     console.log(admin2s);
     const car1s = await newcar.addCars(car1);
     console.log(car1s);
+    const car2s = await newcar.addCars(car2);
+    console.log(car2s);
+    const car3s = await newcar.addCars(car3);
+    console.log(car3s);
+    const car4s = await newcar.addCars(car4);
+    console.log(car4s);
+    const car5s = await newcar.addCars(car5);
+    console.log(car5s);
+    await posts.addPost('Audi', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 
     // await posts.addPost(

@@ -2,7 +2,7 @@
     <div class="login">
         <h2>Dealer Login</h2>
         <form action="/login" method="post" id="login-form" class="login-form">
-		{{#if error}}
+		    {{#if error}}
             <p id="error" class="error"> {{{info}}}</p>
         {{/if}}
         <input type="text" id="username" name="username" placeholder="Username" required ><br><br/>
@@ -11,7 +11,7 @@
 		</form>
     </div>
   <div class="backgroundvideo">
-    <video controls autoplay muted>
+    <video controls autoplay muted loop="loop">
     <source src="/public/video/background2.mp4" type="video/mp4">
     </video>
   </div>

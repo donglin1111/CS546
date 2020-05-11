@@ -1,14 +1,17 @@
+
+
+<link rel="stylesheet" href="/public/css/offers.css">
 <section>
   <link rel="stylesheet" href="/public/css/homepage.css">
   <div class="bigtitle">
       <h1 style="text-align:center">Offers</h1>
 
-  {{#each posts}}  
-    <article class="post">
-      <h2><a href="/posts/{{_id}}">{{title}}</a></h2>
-      <p>{{body}}</p>
-    </article>
-  {{/each}}
+  	<div class="offers-container">
+      {{#each offers}}  
+		  <option value="{{_id}}"></option><p>title:{{title}}<br>
+                body:{{body}}</p></option>
+      {{/each}}
+		</div>
 
   </div>
 </section>

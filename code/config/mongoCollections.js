@@ -16,4 +16,5 @@ let getCollectionFn = collection => {
 module.exports = {
     users: getCollectionFn("users"),
     cars: getCollectionFn("cars"),
+    posts: getCollectionFn("posts"),
 };

@@ -3,6 +3,7 @@ const router = express.Router();
 const data = require('../data');
 const userData = data.users;
 const carData = data.cars;
+const postData = data.posts;
 const cars = require('../data/cars');
 const bcrypt = require("bcryptjs");
 
@@ -83,6 +84,36 @@ router.get("/addoffer", (req, res) => {
         res.render("login/addoffer", { user: req.session.user });
     } else {
         res.render("login/error");
+    }
+});
+
+router.post("/addoffer", async(req, res) => {
+    let blogPostData = req.body;
+    let errors = [];
+
+    if (!blogPostData.title) {
+        errors.push('No title provided');
+    }
+
+    if (!blogPostData.body) {
+        errors.push('No body provided');
+    }
+    if (errors.length > 0) {
+        res.render('login/addoffer', {
+            errors: errors,
+            hasErrors: true,
+            post: blogPostData
+        });
+        return;
+    }
+    try {
+        const newPost = await postData.addPost(
+            blogPostData.title,
+            blogPostData.body,
+        );
+        res.redirect('/login');
+    } catch (e) {
+        res.status(500).json({ error: e });
     }
 });
 

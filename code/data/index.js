@@ -5,6 +5,6 @@ module.exports = {
     // interior: require("./Interior"),
     // comment: require("./Comment"),
     // options: require("./Options"),
-    offer: require("./offer"),
+    posts: require("./posts"),
     users: require("./users")
 };

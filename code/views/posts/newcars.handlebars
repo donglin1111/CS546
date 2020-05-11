@@ -1,12 +1,14 @@
 <section>
   <link rel="stylesheet" href="/public/css/homepage.css">
+  <link rel="stylesheet" href="/public/css/newcar.css">
   <div class="bigtitle">
       <h1 style="text-align:center">NEW CARS</h1>
-      <div class="main_image1">
-        <img src="/public/images/cullinan.jpg" alt="man">
-      </div>
-      <div class="main_image2">
-        <img src="/public/images/lambo-1.jpg" alt="man">
-      </div>
+      <div class="newcar-container">
+      {{#each cars}}  
+        {{#if Usedcar}}
+          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}</option></p> 
+        {{/if}}
+      {{/each}}
+		</div>
   </div>
-</section>
+</section>  

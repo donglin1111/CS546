@@ -42,6 +42,17 @@ let exportedMethods = {
         if (!user) throw 'User not found';
         return user;
     },
+    async addPostToUser(userId, postId, postTitle) {
+        let currentUser = await this.getUserById(userId);
+        console.log(currentUser);
+
+        const userCollection = await users();
+        const updateInfo = await userCollection.updateOne({ _id: userId }, { $addToSet: { posts: { id: postId, title: postTitle } } });
+
+        if (!updateInfo.matchedCount && !updateInfo.modifiedCount) throw 'Update failed';
+
+        return await this.getUserById(userId);
+    },
     async removeUser(id) {
         const userCollection = await users();
         const deletionInfo = await userCollection.removeOne({ _id: id });

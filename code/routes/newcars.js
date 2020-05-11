@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const data = require('../data');
+const carData = data.cars;
 //const userData = data.users;
 router.get('/', async(req, res) => {
-    res.render('posts/newcars');
+    let carList = await carData.getAllCar();
+    res.render('posts/newcars', { cars: carList });
 });
 // router.get('/:id', async(req, res) => {
 //     try {

@@ -1,0 +1,9 @@
+main {
+    height: 800px;
+}
+
+.offers-container p {
+    color: #000;
+    border-style: solid;
+    border-width: 1px;
+}

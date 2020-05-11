@@ -1,20 +1,14 @@
 <section>
   <link rel="stylesheet" href="/public/css/homepage.css">
+  <link rel="stylesheet" href="/public/css/newcar.css">
   <div class="bigtitle">
-      <h1 style="text-align:center">USED CARS</h1>
-      <br>     
-
-
-
-<link rel="stylesheet" href="/public/css/used.css">
-
-<p>
-  <a href={{carInfo.URL}} target="">{{carInfo.Brand}} {{carInfo.Model}}</a>
-</p>
-
-
-        
-
-
+      <h1 style="text-align:center">NEW CARS</h1>
+      <div class="newcar-container">
+      {{#each cars}}  
+        {{#unless Usedcar}}
+          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Color:{{Color}}</option></p> 
+        {{/unless}}
+      {{/each}}
+		</div>
   </div>
-</section>
+</section>  
