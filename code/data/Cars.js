@@ -15,8 +15,12 @@ let exportedMethods = {
         const Model = bodypart.Model;
         const VehicleType = bodypart.VehicleType;
         const Timetomarket = bodypart.Timetomarket;
-        const Color = bodypart.Color;
+        const Years = bodypart.Years;
+        const Exterior = bodypart.Exterior;
         const Usedcar = bodypart.Usedcar;
+        const Interior = bodypart.Interior;
+        const Price = bodypart.Price;
+        const Style = bodypart.Style;
         const Carimage = bodypart.img;
         if (!VIN) throw "VIN cannot be null";
         if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
@@ -42,7 +46,20 @@ let exportedMethods = {
         if (m == 2) {
             if (d > 28) throw "The day is invalid of Timetomarket";
         }
-        if (!Color) throw "Color cannot be null";
+        if (!Years) throw "Years cannot be null";
+        years = parseInt(Years);
+        if (!Exterior) throw "Exterior cannot be null";
+        if (typeof Exterior !== "string") throw "The Exterior for Cars must be a string";
+        if (!Interior) throw "Interior cannot be null";
+        if (typeof Interior !== "string") throw "The Interior for Cars must be a string";
+
+        if (!Price) throw "Price cannot be null";
+        price = parseInt(Price);
+        console.log(price);
+        if (isNaN(price)) throw " The Price must be an number string for car";
+
+        if (!Style) throw "Style cannot be null";
+        if (typeof Style !== "string") throw "The Style for Cars must be a string";
         if (typeof Usedcar !== "boolean") throw "The Usedcar for Cars must be a boolean";
         if (!Carimage) throw "The image of car cannot be null";
         if (typeof Carimage !== "string") throw "The image for Cars must be a string";
@@ -53,8 +70,12 @@ let exportedMethods = {
             Model: Model,
             VehicleType: VehicleType,
             Timetomarket: Timetomarket,
-            Color: Color,
+            Years: Years,
             Usedcar: Usedcar,
+            Exterior: Exterior,
+            Interior: Interior,
+            Style: Style,
+            Price: Price,
             img: Carimage,
             _id: uuidv4()
         };
@@ -90,9 +111,13 @@ let exportedMethods = {
             Model: bodypart.Model,
             VehicleType: bodypart.VehicleType,
             Timetomarket: bodypart.Timetomarket,
-            Color: bodypart.Color,
+            Years: bodypart.Years,
             Usedcar: bodypart.Usedcar,
-            img:bodypart.img
+            Exterior: bodypart.Exterior,
+            Interior: bodypart.Interior,
+            Style: bodypart.Style,
+            Price: bodypart.Price,
+            img: bodypart.Carimage,
         };
         const carCollection = await cars();
         const updateInfo = await carCollection.updateOne({ _id: id }, { $set: updateCar });
