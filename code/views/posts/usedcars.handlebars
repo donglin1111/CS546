@@ -5,10 +5,10 @@
       <h1 style="text-align:center">USED CARS</h1>
       <div class="newcar-container">
       {{#each cars}}  
-        {{#unless Usedcar}}
+        {{#if Usedcar}}
           <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Color:{{Color}}</option></p> 
           <img src="/public/images/{{img}}">
-        {{/unless}}
+        {{/if}}
       {{/each}}
 		</div>
   </div>

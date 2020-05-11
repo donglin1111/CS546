@@ -19,7 +19,7 @@ admin2 = {
 
 car1 = {
     VIN: "7J3ZZ56Y78230003",
-    Brand: "audi",
+    Brand: "Audi",
     Model: "Q8",
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
@@ -29,7 +29,7 @@ car1 = {
     Style: "comfort",
     Price: "5000",
     img: "Audi_Q8.jpg",
-    Usedcar: true
+    Usedcar: false
 }
 car2 = {
     VIN: "SCBDG4ZG6LC076056",
@@ -52,12 +52,18 @@ car3 = {
     VehicleType: "Convertible",
     Timetomarket: "06/02/2019",
     img: "Porsche_WP0CB2A95KS136454.jpg",
+<<<<<<< Updated upstream
     Years:"2014",
     Exterior: "Silver",
     Interior: "Yello",
     Style: "comfort",
     Price: "15000",
     Usedcar: false
+=======
+    Color: ["red"],
+
+    Usedcar: true
+>>>>>>> Stashed changes
 }
 car4 = {
     VIN: "AK1CB2A95KS131234",
@@ -85,7 +91,7 @@ car5 = {
     Style: "comfort",
     Price: "15000",
     img: "Koenigsegg_YT9XC81B98A007066.jpg",
-    Usedcar: true
+    Usedcar: false
 }
 async function main() {
     const db = await dbConnection();

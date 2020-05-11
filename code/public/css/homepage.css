@@ -4,8 +4,8 @@ img {
 }
 
 .carousel-inner {
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 600px;
     margin: auto;
 }
 
@@ -31,7 +31,7 @@ input {
 }
 
 p {
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .backgroundvideo {

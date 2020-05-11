@@ -28,11 +28,6 @@ h6 {
     margin-bottom: 5px;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 2rem;
-}
-
 h2 {
     font-size: 1.5rem;
 }
@@ -71,7 +66,7 @@ input {
 
 .site-footer {
     background-color: #26272b;
-    padding: 45px 0 20px;
+    padding: 25px 0 20px;
     font-size: 15px;
     line-height: 24px;
     color: #737373;
@@ -83,7 +78,7 @@ input {
 }
 
 .site-footer hr.small {
-    margin: 20px 0
+    margin: 10px 0
 }
 
 .site-footer h6 {
@@ -147,7 +142,7 @@ input {
 
 @media (max-width:991px) {
     .site-footer [class^=col-] {
-        margin-bottom: 30px
+        margin-bottom: 10px
     }
 }
 

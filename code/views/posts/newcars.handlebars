@@ -3,12 +3,18 @@
   <link rel="stylesheet" href="/public/css/newcar.css">
   <div class="bigtitle">
       <h1 style="text-align:center">NEW CARS</h1>
-      <div class="newcar-container">
+      <div class="allcar-container">
       {{#each cars}}  
-        {{#if Usedcar}}
-          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}
-          </option><img src="/public/images/{{img}}"></p> 
-        {{/if}}
+        {{#unless Usedcar}}
+        <div class="newcar-container" value="{{_id}}">
+          <div class="img-container" >
+              <img src="/public/images/{{img}}"> 
+          </div>
+          <div class="info-container">
+              {{Brand}} {{Model}}
+          </div>
+        </div>
+        {{/unless}}
       {{/each}}
 		</div>
   </div>
