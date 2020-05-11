@@ -1,20 +1,19 @@
 body {
     font-family: "Lato", sans-serif;
+    overflow: hidden;
+    height: 100%;
 }
 
 main {
-    min-height: 800px;
-}
-
-img {
-    width: 600px;
-    height: 400px;
+    height: 800px;
 }
 
 body {
     font-family: "Lato", sans-serif;
 }
-
+label{
+    margin-right: 10px;
+}
 .sidenav {
     height: 825px;
     width: 0;
