@@ -138,9 +138,9 @@ async function updateCar(id, bodypart) {
     if (carchange.modifiedCount === 0) throw "Cannot update grade by provide id";
     return carchange;
 };
-// module.exports = {
-//     addCars,
-//     getAllCar,
-//     removeOneCar,
-//     updateCar
-// };
+module.exports = {
+    addCars,
+    getAllCar,
+    removeOneCar,
+    updateCar
+};
