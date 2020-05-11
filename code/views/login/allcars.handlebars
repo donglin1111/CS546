@@ -1,10 +1,17 @@
 
-	<link rel="stylesheet" href="/public/css/private.css">
+	<style>
+        .car-container{
+            position: absolute;
+            color: black;
+            
+        }
+    </style>
+    <link rel="stylesheet" href="/public/css/private.css">
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 	<div id="mySidenav" class="sidenav">
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  		<a href="/login" >Main</a>
-			<a href="/login/allcars">All Cars</a>
+			<a href="/login/allcars" >All Cars</a>
 			<a href="/login/addcar" >Add Car</a>
 			<a href="#" >Delete Car</a>
 			<a href="/login/update" >Update Car</a>	
@@ -13,8 +20,10 @@
 	</div>
 	<div class="user-panel">
 		<h2>Logged in as: {{{user.lastname}}}</h2>
-		
-		<div class="w3-container w3-teal">
+		<div class="car-container">
+        {{#each cars}}  
+			 <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Color:{{Color}}</option>
+        {{/each}}
 		</div>
 	</div>
 	
