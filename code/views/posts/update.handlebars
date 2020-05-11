@@ -1,0 +1,42 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+  
+  <form action="/update-result" method="post">
+    <label for="upid">
+        Please enter the id:
+        <input type="text" name="upid"  placeholder="id" id="upid">
+    </label><br>
+    <label for="upVIN">
+        new VIN: 
+        <input type="text" name="upVIN" id="upVIN">
+    </label><br>
+    <label for="upBrand">
+        new Brand: 
+        <input type="text" name="upBrand" id="upBrand">
+    </label><br>
+    <label for="upModel">
+        new Model: 
+        <input type="text" name="upModel" id="upModel">
+    </label><br>
+    <label for="upVehicleType">
+        new VehicleType: 
+        <input type="text" name="upVehicleType" id="upVehicleType">
+    </label><br>
+    <label for="upTimetomarket">
+        new Timetomarket: 
+        <input type="text" name="upTimetomarket" id="upTimetomarket">
+    </label><br>
+    <label for="upColor">
+        new Color: 
+        <input type="checkbox" name="upColor" value="red" class="upColor" />Red
+        <input type="checkbox" name="upColor" value="green" class="upColor" />Green
+        <input type="checkbox" name="upColor" value="black" class="upColor" />Black
+        <input type="checkbox" name="upColor" value="white" class="upColor" />White
+        <input type="checkbox" name="upColor" value="blue" class="upColor" />Blue
+    </label><br>
+
+    <input type="submit" value="Upadte">
+  </form>
+</article>
