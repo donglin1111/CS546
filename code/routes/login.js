@@ -68,9 +68,10 @@ router.get("/allcars", async(req, res) => {
 });
 
 router.post('/addcar', async(req, res) => {
+    req.body.Usedcar = (req.body.Usedcar == 'true');
+    console.log(req.body);
     if (req.body) {
         let body = req.body;
-        console.log("carInfo");
         cars.addCars(body);
         res.redirect('/login');
         // console.log(carInfo);
