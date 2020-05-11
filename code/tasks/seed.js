@@ -1,7 +1,7 @@
-const dbConnection = require('../config/mongoConnection');
+const dbConnection = require('../data/mongoConnection');
 const data = require('../data/');
 const users = data.users;
-const grade = data.grade;
+const grade= data.grade;
 const cars = data.cars;
 
 async function main() {
@@ -11,8 +11,9 @@ async function main() {
         "audi",
         "Q8",
         "SUV",
-        "08/12/2020", ["black", "blue", "white", "grey"],
-    )
+        "08/12/2020",
+        ["black","blue","white","grey"],
+        )
     carss = await newcar.getAllCarById();
     console.log(carss);
 
