@@ -23,7 +23,11 @@ car1 = {
     Model: "Q8",
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
-    Color: ["black", "blue", "white", "grey"],
+    Years:"2010",
+    Exterior: "Silver",
+    Interior: "Yello",
+    Style: "comfort",
+    Price: "5000",
     img:"Audi_Q8.jpg",
     Usedcar: true
 }
@@ -33,7 +37,12 @@ car2 = {
     Model: "Continental GT V8 Convertible",
     VehicleType: "Convertible",
     Timetomarket: "01/12/2020",
-    Color: ["black"],
+    Years:"2020",
+    Exterior: "Silver",
+    Interior: "Yello",
+    Style: "comfort",
+    Price: "15000",
+    img:"Audi_Q8.jpg",
     Usedcar: false
 }
 car3 = {
@@ -42,7 +51,12 @@ car3 = {
     Model: "911 Carrera GTS",
     VehicleType: "Convertible",
     Timetomarket: "06/02/2019",
-    Color: ["red"],
+    Years:"2014",
+    Exterior: "Silver",
+    Interior: "Yello",
+    Style: "comfort",
+    Price: "15000",
+    img:"Audi_Q8.jpg",
     Usedcar: false
 }
 car4 = {
@@ -51,7 +65,12 @@ car4 = {
     Model: "Huracan EVO Spyder",
     VehicleType: "Convertible",
     Timetomarket: "02/01/2020",
-    Color: ["red"],
+    Years:"2017",
+    Exterior: "Red",
+    Interior: "Blue",
+    Style: "comfort",
+    Price: "10000",
+    img:"Audi_Q8.jpg",
     Usedcar: false
 }
 car5 = {
@@ -60,7 +79,12 @@ car5 = {
     Model: "CCX",
     VehicleType: "Convertible",
     Timetomarket: "08/12/2008",
-    Color: ["Silver"],
+    Years:"2020",
+    Exterior: "Silver",
+    Interior: "Yello",
+    Style: "comfort",
+    Price: "15000",
+    img:"Audi_Q8.jpg",
     Usedcar: true
 }
 async function main() {

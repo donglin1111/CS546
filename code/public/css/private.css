@@ -11,7 +11,9 @@ main {
 body {
     font-family: "Lato", sans-serif;
 }
-
+label{
+    margin-right: 10px;
+}
 .sidenav {
     height: 825px;
     width: 0;
