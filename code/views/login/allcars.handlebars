@@ -1,11 +1,4 @@
 
-	<style>
-        .car-container{
-            position: absolute;
-            color: black;
-            
-        }
-    </style>
     <link rel="stylesheet" href="/public/css/private.css">
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 	<div id="mySidenav" class="sidenav">
@@ -22,7 +15,8 @@
 		<h2>Logged in as: {{{user.lastname}}}</h2>
 		<div class="car-container">
         {{#each cars}}  
-			 <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}</option>
+			<p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}
+			 </option><img src="/public/images/{{img}}"></p>
         {{/each}}
 		</div>
 	</div>

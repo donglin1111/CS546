@@ -24,7 +24,7 @@ car1 = {
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
     Color: ["black", "blue", "white", "grey"],
-    img:"Audi_Q8.jpg",
+    img: "Audi_Q8.jpg",
     Usedcar: true
 }
 car2 = {
@@ -34,6 +34,7 @@ car2 = {
     VehicleType: "Convertible",
     Timetomarket: "01/12/2020",
     Color: ["black"],
+    img: "Bentley_SCBDG4ZG6LC076056.jpg",
     Usedcar: false
 }
 car3 = {
@@ -42,7 +43,9 @@ car3 = {
     Model: "911 Carrera GTS",
     VehicleType: "Convertible",
     Timetomarket: "06/02/2019",
+    img: "Porsche_WP0CB2A95KS136454.jpg",
     Color: ["red"],
+
     Usedcar: false
 }
 car4 = {
@@ -52,6 +55,7 @@ car4 = {
     VehicleType: "Convertible",
     Timetomarket: "02/01/2020",
     Color: ["red"],
+    img: "Lamborghini_AK1CB2A95KS131234.jpg",
     Usedcar: false
 }
 car5 = {
@@ -61,6 +65,7 @@ car5 = {
     VehicleType: "Convertible",
     Timetomarket: "08/12/2008",
     Color: ["Silver"],
+    img: "Koenigsegg_YT9XC81B98A007066.jpg",
     Usedcar: true
 }
 async function main() {

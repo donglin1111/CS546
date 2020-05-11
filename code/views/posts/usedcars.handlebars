@@ -7,6 +7,7 @@
       {{#each cars}}  
         {{#unless Usedcar}}
           <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Color:{{Color}}</option></p> 
+          <img src="/public/images/{{img}}">
         {{/unless}}
       {{/each}}
 		</div>

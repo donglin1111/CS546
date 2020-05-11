@@ -6,7 +6,8 @@
       <div class="newcar-container">
       {{#each cars}}  
         {{#if Usedcar}}
-          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}</option></p> 
+          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} ||Used:{{Usedcar}}|| Color:{{Color}}
+          </option><img src="/public/images/{{img}}"></p> 
         {{/if}}
       {{/each}}
 		</div>
