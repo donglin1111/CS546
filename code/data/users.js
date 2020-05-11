@@ -53,8 +53,6 @@ let exportedMethods = {
 
     async updateUser(id, bodypart) {
         const user = await this.getUserById(id);
-        console.log(user);
-
         const userUpdateInfo = {
             firstName: bodypart.firstName,
             lastName: bodypart.lastName,

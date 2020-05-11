@@ -30,7 +30,6 @@ router.post('/', async(req, res) => {
             break;
         }
     }
-    console.log(userList[0]);
     if (theuser != undefined && bcrypt.compareSync(password, theuser.hashedpassword)) {
         req.session.user = theuser;
         res.redirect("login/private");

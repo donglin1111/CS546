@@ -80,8 +80,6 @@ let exportedMethods = {
     },
     async updateCar(id, bodypart) {
         const car = await this.getCarById(id);
-        console.log(car);
-
         var updateCar = {
             VIN: bodypart.VIN,
             Brand: bodypart.Brand,
