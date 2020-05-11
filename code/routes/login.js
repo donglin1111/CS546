@@ -40,7 +40,7 @@ router.post('/', async(req, res) => {
 });
 
 router.get("/private", async(req, res) => {
-    const carList = await carData.getAllCar();
+    const carList = await carData.getAllCar(req.session.user.username);
     if (req.session.user) {
         res.render("login/private", { user: req.session.user, cars: carList });
     } else {
@@ -49,7 +49,7 @@ router.get("/private", async(req, res) => {
 });
 
 router.get("/addcar", async(req, res) => {
-    const carList = await carData.getAllCar();
+    const carList = await carData.getAllCar(req.session.user.username);
     if (req.session.user) {
         res.render("login/addcar", { user: req.session.user, cars: carList });
     } else {
@@ -58,7 +58,7 @@ router.get("/addcar", async(req, res) => {
 });
 
 router.get("/allcars", async(req, res) => {
-    const carList = await carData.getAllCar();
+    const carList = await carData.getAllCar(req.session.user.username);
     if (req.session.user) {
         res.render("login/allcars", { user: req.session.user, cars: carList });
     } else {
@@ -69,8 +69,8 @@ router.get("/allcars", async(req, res) => {
 router.post('/addcar', async(req, res) => {
     if (req.body) {
         let body = req.body;
-        console.log("carInfo");
-        cars.addCars(body);
+        cars.addCars(req.session.user.username,body);
+        console.log(body.img);
         res.redirect('/login');
         // console.log(carInfo);
     } else {

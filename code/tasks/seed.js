@@ -17,13 +17,15 @@ admin2 = {
 }
 
 car1 = {
+    username: "admin2",
     VIN: "7J3ZZ56Y78230003",
     Brand: "audi",
     Model: "Q8",
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
     Color: ["black", "blue", "white", "grey"],
-    Usedcar: "Yes"
+    Usedcar: "Yes",
+    img:"tasks/img/Audi_Q8.jpg"
 }
 async function main() {
     const db = await dbConnection();

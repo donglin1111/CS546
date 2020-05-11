@@ -10,6 +10,7 @@ const uuidv4 = require('uuid/v4');
 //const commentfunction = require('./Comment');
 let exportedMethods = {
     async addCars(bodypart) {
+        const username = bodypart.username;
         const VIN = bodypart.VIN;
         const Brand = bodypart.Brand;
         const Model = bodypart.Model;
@@ -17,6 +18,9 @@ let exportedMethods = {
         const Timetomarket = bodypart.Timetomarket;
         const Color = bodypart.Color;
         const Usedcar = bodypart.Usedcar;
+        const Carimage = bodypart.img;
+        if (!username) throw "VIN cannot be null";
+        if (typeof username !== "string") throw "The username for Cars must be a string";
         if (!VIN) throw "VIN cannot be null";
         if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
         if (!Brand) throw "Brand cannot be null";
@@ -43,8 +47,11 @@ let exportedMethods = {
         }
         if (!Color) throw "Color cannot be null";
         if (!Usedcar) throw "Usedcar is null";
+        if (!Carimage) throw "The image of car cannot be null";
+        if (typeof Carimage !== "string") throw "The Carimage for Cars must be a string";
         const carCollection = await cars();
         var newCar = {
+            username: username,
             VIN: VIN,
             Brand: Brand,
             Model: Model,
@@ -52,6 +59,7 @@ let exportedMethods = {
             Timetomarket: Timetomarket,
             Color: Color,
             Usedcar: Usedcar,
+            img: Carimage,
             _id: uuidv4()
         };
         const newInsertInformation = await carCollection.insertOne(newCar);
@@ -64,7 +72,14 @@ let exportedMethods = {
         if (!car) throw 'Car not found';
         return car;
     },
-    async getAllCar() {
+    async getAllCar(username) {
+        if(!username) throw " The username is null to get all cars";
+        const carCollection = await cars();
+        const carList = await carCollection.find({username}).toArray();
+        if (!carList) throw 'No cars in system!';
+        return carList;
+    },
+    async getAllsellersCar() {
         const carCollection = await cars();
         const carList = await carCollection.find({}).toArray();
         if (!carList) throw 'No cars in system!';
@@ -88,7 +103,7 @@ let exportedMethods = {
             Timetomarket: bodypart.Timetomarket,
             Color: bodypart.Color,
             Usedcar: bodypart.Usedcar,
-
+            img:bodypart.img
         };
         const carCollection = await cars();
         const updateInfo = await carCollection.updateOne({ _id: id }, { $set: updateCar });

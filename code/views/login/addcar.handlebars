@@ -1,64 +1,71 @@
 <style>
-    p{color: black;}
+    p {
+        color: black;
+    }
 </style>
 
 
-	<link rel="stylesheet" href="/public/css/private.css">
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-	<div id="mySidenav" class="sidenav">
-  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/login" >Main</a>
-			<a href="/login/allcars">All Cars</a>
-			<a href="/login/addcar" >Add Car</a>
-			<a href="#" >Delete Car</a>
-			<a href="" >Update Car</a>	
-			<a href="/login/logout">Logout</a> 
-	</div>
-	<div class="user-panel">
-		<h2>Logged in as: {{{user.lastname}}}</h2>
-		<div class="w3-container w3-teal">
-            <div class="row">
-    <div class="col-sm-12">
-        <link rel="stylesheet" href="/public/css/update.css">
-        <form class="newcar" method="POST">
-            <p><label>
-                    Car VIN
-                    <input type="text" name="VIN" placeholder="Unique Vin" value="" class="addcar-input" />
-                </label></p>
-            <p><label>
-                    Car Brand
-                    <input type="text" name="Brand" placeholder="i.e Audi" value="" class="addcar-input" />
-                </label></p>
-            <p><label>
-                    Car Model
-                    <input type="text" name="Model" placeholder="i.e SUV" value="" class="addcar-input" />
-                </label></p>
-            <p><label>
-                    Car type
-                    <input type="text" name="VehicleType" placeholder="i.e A3" value="" class="addcar-input" />
-                </label></p>
-            <p><label>
-                    Time to market
-                    <input type="text" name="Timetomarket" placeholder="mm/dd/yyyy" value="" class="addcar-input" />
-                </label></p>
-            <p><label>
-                    Color
-                    <input type="checkbox" name="Color" value="red" class="addcar-input" />Red
-                    <input type="checkbox" name="Color" value="green" class="addcar-input" />Green
-                    <input type="checkbox" name="Color" value="black" class="addcar-input" />Black
-                    <input type="checkbox" name="Color" value="white" class="addcar-input" />White
-                    <input type="checkbox" name="Color" value="blue" class="addcar-input" />Blue
-                </label></p>
-            <p><label>
-                    Usedcar
-                    <input type="radio" name="Usedcar" value="Yes" class="addcar-input" />Yes
-                    <input type="radio" name="Usedcar" value="No" class="addcar-input" />No
-                </label></p>
-            <p><button type="submit" id="butt1">submit</button></p>
-        </form>
+<link rel="stylesheet" href="/public/css/private.css">
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/login">Main</a>
+    <a href="/login/allcars">All Cars</a>
+    <a href="/login/addcar">Add Car</a>
+    <a href="#">Delete Car</a>
+    <a href="">Update Car</a>
+    <a href="/login/logout">Logout</a>
+</div>
+<div class="user-panel">
+    <h2>Logged in as: {{{user.lastname}}}</h2>
+    <div class="w3-container w3-teal">
+        <div class="row">
+            <div class="col-sm-12">
+                <link rel="stylesheet" href="/public/css/update.css">
+                <form class="newcar" method="POST">
+                    <p><label>
+                            Car VIN
+                            <input type="text" name="VIN" placeholder="Unique Vin" value="" class="addcar-input" />
+                        </label></p>
+                    <p><label>
+                            Car Brand
+                            <input type="text" name="Brand" placeholder="i.e Audi" value="" class="addcar-input" />
+                        </label></p>
+                    <p><label>
+                            Car Model
+                            <input type="text" name="Model" placeholder="i.e SUV" value="" class="addcar-input" />
+                        </label></p>
+                    <p><label>
+                            Car type
+                            <input type="text" name="VehicleType" placeholder="i.e A3" value="" class="addcar-input" />
+                        </label></p>
+                    <p><label>
+                            Time to market
+                            <input type="text" name="Timetomarket" placeholder="mm/dd/yyyy" value=""
+                                class="addcar-input" />
+                        </label></p>
+                    <p><label>
+                            Color
+                            <input type="checkbox" name="Color" value="red" class="addcar-input" />Red
+                            <input type="checkbox" name="Color" value="green" class="addcar-input" />Green
+                            <input type="checkbox" name="Color" value="black" class="addcar-input" />Black
+                            <input type="checkbox" name="Color" value="white" class="addcar-input" />White
+                            <input type="checkbox" name="Color" value="blue" class="addcar-input" />Blue
+                        </label></p>
+                    <p><label>
+                            Usedcar
+                            <input type="radio" name="Usedcar" value="Yes" class="addcar-input" />Yes
+                            <input type="radio" name="Usedcar" value="No" class="addcar-input" />No
+                        </label></p>
+                    <p><label>
+                            Upload image
+                            <input type="file" name="img" accept="image/*" class="addcar-input">
+                        </label></p>
+                    <p><button type="submit" id="butt1">submit</button></p>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-		</div>
-	</div>
-	
- <script src="/public/js/private.js"></script>
+
+<script src="/public/js/private.js"></script>
