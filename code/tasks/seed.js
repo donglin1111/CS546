@@ -8,13 +8,13 @@ admin1 = {
     username: 'admin1',
     firstname: "Harry",
     lastname: "Potter",
-    password: "admin1"
+    hashedPassword: "$2a$05$KBuYzqvuaEK/3lVyHi2Ele5Sn05iG5tebskQjte90PY.UOfLAh47u"
 }
 admin2 = {
     username: 'admin2',
     firstname: "Donglin",
     lastname: "Yang",
-    password: "admin2"
+    hashedPassword: "$2a$05$9BSBli1pCgSQADNuv3lr4uhnOJcOreJUqhFP2sEUfT3a5.QOrH9Pi"
 }
 
 car1 = {

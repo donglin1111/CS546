@@ -15,8 +15,7 @@ let exportedMethods = {
         const username = bodypart.username;
         const firstname = bodypart.firstname;
         const lastname = bodypart.lastname;
-        const password = bodypart.password;
-        const hashedpassword = await bcrypt.hash(password, saltround);
+        const hashedpassword = bodypart.hashedPassword;
         if (!username) throw "The user name for user is null";
         if (typeof username !== "string") throw "The user name for user must be a string";
         if (!firstname) throw "The first name for user is null";
