@@ -208,6 +208,19 @@ router.post("/addoffer", async(req, res) => {
     }
 });
 
+router.get('/delete', async (req, res) => {
+    if (req.session.user) {
+        const carList = await carData.getAllCar();
+        res.render('login/delete', { title: 'Delete', cars: carList });
+    }else{
+        res.render("login/error");
+    }
+});
+router.post('/delete', async (req, res) => {
+    const bool = await cars.removeOneCar(req.body.id);
+    res.render('login/delete-result', { title: 'Delete result', IsDelete: bool, id: req.body.id });
+});
+
 router.get('/logout', async(req, res) => {
     req.session.destroy();
     res.redirect("/");

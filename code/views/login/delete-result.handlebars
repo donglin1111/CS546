@@ -1,0 +1,13 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+  <p style="color:#000;font-weight:bold;font-size:20px" >VIN: {{id}}</p>
+  {{#if IsDelete}}
+    <p style="color:#000;font-weight:bold;font-size:20px">Congratulate! VIN: '{{id}}' is deleted</p>
+  {{else}}
+    <p style="color:#000;font-weight:bold;font-size:20px">Sorry. id: '{{id}}' is not deleted</p>
+  {{/if}}
+    <a href="/login">Return to your homepage</a>
+</article>
