@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     }
 });
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     let userList = await userData.getAllUsers();
     const { username, password } = req.body;
     if (!username || !password) {
@@ -40,7 +40,7 @@ router.post('/', async(req, res) => {
 
 });
 
-router.get("/private", async(req, res) => {
+router.get("/private", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
         res.render("login/private", { user: req.session.user, cars: carList });
@@ -49,7 +49,7 @@ router.get("/private", async(req, res) => {
     }
 });
 
-router.get("/addcar", async(req, res) => {
+router.get("/addcar", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
         res.render("login/addcar", { user: req.session.user, cars: carList });
@@ -58,7 +58,7 @@ router.get("/addcar", async(req, res) => {
     }
 });
 
-router.get("/allcars", async(req, res) => {
+router.get("/allcars", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
         res.render("login/allcars", { user: req.session.user, cars: carList });
@@ -67,7 +67,7 @@ router.get("/allcars", async(req, res) => {
     }
 });
 
-router.post('/addcar', async(req, res) => {
+router.post('/addcar', async (req, res) => {
     req.body.Usedcar = (req.body.Usedcar == 'true');
     console.log(req.body);
     if (req.body) {
@@ -88,7 +88,7 @@ router.get("/addoffer", (req, res) => {
     }
 });
 
-router.post("/addoffer", async(req, res) => {
+router.post("/addoffer", async (req, res) => {
     let blogPostData = req.body;
     let errors = [];
 
@@ -118,7 +118,22 @@ router.post("/addoffer", async(req, res) => {
     }
 });
 
-router.get('/logout', async(req, res) => {
+router.get('/delete', async (req, res) => {
+    if (req.session.user) {
+        const carList = await carData.getAllCar();
+        res.render('login/delete', { title: 'Delete', cars: carList });
+    }else{
+        res.render("login/error");
+    }
+});
+router.post('/delete', async (req, res) => {
+    if(!req.body) throw"no request";
+    console.log(req.body.id);
+    const bool = await cars.removeOneCar(req.body.id);
+    res.render('login/delete-result', { title: 'Delete result', IsDelete: bool, id: req.body.id });
+});
+
+router.get('/logout', async (req, res) => {
     req.session.destroy();
     res.redirect("/");
 });

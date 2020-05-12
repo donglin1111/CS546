@@ -8,7 +8,10 @@ const cars = require('../data/Cars');
 router.get('/', (req, res) => {
 	res.render('posts/delete', {title: 'Delete'});
 });
-
+router.post('/', (req, res) => {
+	cars.removeOneCar()
+	res.render('posts/delete-result', {title: 'Delete result'});
+});
 
 
 module.exports = router;

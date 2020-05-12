@@ -1,0 +1,19 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+  
+  <form method="post">
+    <label for="VIN">
+        Car Id: 
+        <input type="text" name="id" id="id">
+    </label><br>
+    <input type="submit" value="Submit">
+  </form>
+  <div class="car-container">
+        {{#each cars}}  
+			 <option >id: {{_id}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Years:{{Years}} || Used:{{Usedcar}} || Exterior:{{Exterior}} || Interior:{{Exterior}} || Price:{{Exterior}} || Style:{{Style}}</option>
+			 </option><img src="/public/images/{{img}}"></p>
+        {{/each}}
+		</div>
+</article>
