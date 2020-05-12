@@ -1,5 +1,4 @@
 <section>
-  <link rel="stylesheet" href="/public/css/homepage.css">
   <link rel="stylesheet" href="/public/css/newcar.css">
   <div class="bigtitle">
       <h1 style="text-align:center">NEW CARS</h1>
@@ -11,7 +10,14 @@
               <img src="/public/images/{{img}}"> 
           </div>
           <div class="info-container">
-              {{Brand}} {{Model}}
+             <a href="/posts/{{_id}}">{{Year}} {{Brand}} {{VehicleType}}</a>
+             <p class="carinfo">
+                Exterior: {{Exterior}}<br>
+                Interior: {{Interior}}<br>
+                Body: {{Style}}<br>
+                Mileage: {{Mileage}}<br>
+                Price: {{Price}}
+            </p>
           </div>
         </div>
         {{/unless}}
