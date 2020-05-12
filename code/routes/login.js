@@ -15,29 +15,33 @@ router.get("/", (req, res) => {
     }
 });
 
-router.post('/', async(req, res) => {
-    let userList = await userData.getAllUsers();
-    const { username, password } = req.body;
-    if (!username || !password) {
-        res.status(401).render("post/login", { error: true, info: "You must enter username or password" });
-        return;
-    }
-    let exists = false;
-    let theuser;
-    for (let i = 0; i < userList.length; i++) {
-        if (Object.values(userList[i]).includes(username)) {
-            exists = true;
-            theuser = userList[i];
-            break;
+router.post('/', async (req, res) => {
+    if (req.body.search) {
+        const carlist = await data.cars.SearchCar(req.body.search);
+        res.render('posts/searchresult', { cars: carlist });
+    } else {
+        let userList = await userData.getAllUsers();
+        const { username, password } = req.body;
+        if (!username || !password) {
+            res.status(401).render("post/login", { error: true, info: "You must enter username or password" });
+            return;
+        }
+        let exists = false;
+        let theuser;
+        for (let i = 0; i < userList.length; i++) {
+            if (Object.values(userList[i]).includes(username)) {
+                exists = true;
+                theuser = userList[i];
+                break;
+            }
+        }
+        if (theuser != undefined && bcrypt.compareSync(password, theuser.hashedpassword)) {
+            req.session.user = theuser;
+            res.redirect("login/private");
+        } else {
+            res.status(401).render("posts/login", { error: true, info: "The username or password was incorrect" });
         }
     }
-    if (theuser != undefined && bcrypt.compareSync(password, theuser.hashedpassword)) {
-        req.session.user = theuser;
-        res.redirect("login/private");
-    } else {
-        res.status(401).render("posts/login", { error: true, info: "The username or password was incorrect" });
-    }
-
 });
 
 // router.get('/:id', async(req, res) => {
@@ -53,7 +57,7 @@ router.post('/', async(req, res) => {
 //     }
 // });
 
-router.get("/private", async(req, res) => {
+router.get("/private", async (req, res) => {
     const carList = await carData.getAllCar();
     const offerList = await postData.getAllPosts();
     let total = carList.length;
@@ -80,8 +84,11 @@ router.get("/private", async(req, res) => {
         res.render("login/error");
     }
 });
-
-router.get("/addcar", async(req, res) => {
+router.post('/private', async (req, res) => {
+    const carlist = await data.cars.SearchCar(req.body.search);
+    res.render('posts/searchresult', { cars: carlist });
+});
+router.get("/addcar", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
         res.render("login/addcar", { user: req.session.user, cars: carList });
@@ -89,24 +96,24 @@ router.get("/addcar", async(req, res) => {
         res.render("login/error");
     }
 });
-router.get("/update", async(req, res) => {
+router.get("/update", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
-        res.render("login/update", {title:'Update' ,user: req.session.user, cars: carList });
+        res.render("login/update", { title: 'Update', user: req.session.user, cars: carList });
     } else {
         res.render("login/error");
     }
 });
-router.get("/delete", async(req, res) => {
+router.get("/delete", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
-        res.render("login/delete", {title:'Delete', user: req.session.user, cars: carList });
+        res.render("login/delete", { title: 'Delete', user: req.session.user, cars: carList });
     } else {
         res.render("login/error");
     }
 });
 
-router.get("/allcars", async(req, res) => {
+router.get("/allcars", async (req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
         res.render("login/allcars", { user: req.session.user, cars: carList });
@@ -114,9 +121,12 @@ router.get("/allcars", async(req, res) => {
         res.render("login/error");
     }
 });
+router.post('/allcars', async (req, res) => {
+    const carlist = await data.cars.SearchCar(req.body.search);
+    res.render('posts/searchresult', { cars: carlist });
+});
 
-
-router.get("/addedcar", async(req, res) => {
+router.get("/addedcar", async (req, res) => {
     if (req.session.user) {
         res.render("login/addedcars", { user: req.session.user, cars: carList });
     } else {
@@ -124,170 +134,185 @@ router.get("/addedcar", async(req, res) => {
     }
 });
 
-router.post('/addcar', async(req, res) => {
-    let carData = req.body;
-    let errors = [];
-    if (!carData.VIN) {
-        errors.push('No VIN provided');
-    }
-    if (!carData.Brand) {
-        errors.push('No Brand provided');
-    }
-    if (!carData.Model) {
-        errors.push('No Model provided');
-    }
-    if (!carData.VehicleType) {
-        errors.push('No VehicleType provided');
-    }
-    if (!carData.Timetomarket) {
-        errors.push('No Timetomarket provided');
-    }
-    if (!carData.Years) {
-        errors.push('No Years provided');
-    }
-    if (!carData.Usedcar) {
-        errors.push('No Usedcar provided');
-    }
-    if (!carData.Exterior) {
-        errors.push('No Exterior provided');
-    }
-    if (!carData.Interior) {
-        errors.push('No Interior provided');
-    }
-    if (!carData.Style) {
-        errors.push('No Style provided');
-    }
-    if (!carData.Price) {
-        errors.push('No Price provided');
-    }
-    if (!carData.Mileage) {
-        errors.push('No Mileage provided');
-    }
-    if (!carData.img) {
-        errors.push('No img provided');
-    }
-    if (errors.length > 0) {
-        res.render('login/addcar', {
-            errors: errors,
-            hasErrors: true,
-            post: carData
-        });
-        return;
-    }
-    console.log(carData)
-    // let VIN=carData.VIN
-    // console.log(VIN)
-    // delete carData.VIN
-    // console.log(carData)
-    carData.Usedcar = (carData.Usedcar == 'true');
-    try {
-        const newcar = await cars.addCars(carData);
-        res.redirect(`/newcars/${newcar._id}`);
-        // res.redirect('/login/addedcar/${newcar._id}');
-    } catch (e) {
-        res.status(500).json({ error: e });
-    }
-});
-
-router.post('/update', async(req, res) => {
-    let carData = req.body;
-    let errors = [];
-    if (!carData.id) {
-        errors.push('No VIN provided');
-    }
-    if (!carData.VIN) {
-        errors.push('No VIN provided');
-    }
-    if (!carData.Brand) {
-        errors.push('No Brand provided');
-    }
-    if (!carData.Model) {
-        errors.push('No Model provided');
-    }
-    if (!carData.VehicleType) {
-        errors.push('No VehicleType provided');
-    }
-    if (!carData.Timetomarket) {
-        errors.push('No Timetomarket provided');
-    }
-    if (!carData.Years) {
-        errors.push('No Years provided');
-    }
-    if (!carData.Usedcar) {
-        errors.push('No Usedcar provided');
-    }
-    if (!carData.Exterior) {
-        errors.push('No Exterior provided');
-    }
-    if (!carData.Interior) {
-        errors.push('No Interior provided');
-    }
-    if (!carData.Style) {
-        errors.push('No Style provided');
-    }
-    if (!carData.Price) {
-        errors.push('No Price provided');
-    }
-    if (!carData.Mileage) {
-        errors.push('No Mileage provided');
-    }
-    if (!carData.img) {
-        errors.push('No img provided');
-    }
-    if (errors.length > 0) {
-        res.render('login/update', {
-            errors: errors,
-            hasErrors: true,
-            post: carData
-        });
-        return;
-    }
-    // console.log(carData)
-    let id=carData.id
-    // console.log(id)
-    delete carData.id
-    // console.log(carData)
-    carData.Usedcar = (carData.Usedcar == 'true');
-    try {
-        const update = await cars.updateCar(id,carData);
-        // res.redirect(`/newcars/${update._id}`);
-        res.render('login/update-result', { title: 'update result', IsUpdate: true, id: id });
-        // res.redirect('/login/addedcar/${newcar._id}');
-    } catch (e) {
-        // res.status(500).json({ error: e });
-        res.render('login/update-result', { title: 'update result', IsUpdate: false, id: id });
+router.post('/addcar', async (req, res) => {
+    if (req.body.search) {
+        const carlist = await data.cars.SearchCar(req.body.search);
+        res.render('posts/searchresult', { cars: carlist });
+    } else {
+        let carData = req.body;
+        let errors = [];
+        if (!carData.VIN) {
+            errors.push('No VIN provided');
+        }
+        if (!carData.Brand) {
+            errors.push('No Brand provided');
+        }
+        if (!carData.Model) {
+            errors.push('No Model provided');
+        }
+        if (!carData.VehicleType) {
+            errors.push('No VehicleType provided');
+        }
+        if (!carData.Timetomarket) {
+            errors.push('No Timetomarket provided');
+        }
+        if (!carData.Years) {
+            errors.push('No Years provided');
+        }
+        if (!carData.Usedcar) {
+            errors.push('No Usedcar provided');
+        }
+        if (!carData.Exterior) {
+            errors.push('No Exterior provided');
+        }
+        if (!carData.Interior) {
+            errors.push('No Interior provided');
+        }
+        if (!carData.Style) {
+            errors.push('No Style provided');
+        }
+        if (!carData.Price) {
+            errors.push('No Price provided');
+        }
+        if (!carData.Mileage) {
+            errors.push('No Mileage provided');
+        }
+        if (!carData.img) {
+            errors.push('No img provided');
+        }
+        if (errors.length > 0) {
+            res.render('login/addcar', {
+                errors: errors,
+                hasErrors: true,
+                post: carData
+            });
+            return;
+        }
+        console.log(carData)
+        // let VIN=carData.VIN
+        // console.log(VIN)
+        // delete carData.VIN
+        // console.log(carData)
+        carData.Usedcar = (carData.Usedcar == 'true');
+        try {
+            const newcar = await cars.addCars(carData);
+            res.redirect(`/newcars/${newcar._id}`);
+            // res.redirect('/login/addedcar/${newcar._id}');
+        } catch (e) {
+            res.status(500).json({ error: e });
+        }
     }
 });
 
-router.post('/delete', async(req, res) => {
-    let carData = req.body;
-    let errors = [];
-    if (!carData.id) {
-        errors.push('No id provided');
+router.post('/update', async (req, res) => {
+    if (req.body.search) {
+        const carlist = await data.cars.SearchCar(req.body.search);
+        res.render('posts/searchresult', { cars: carlist });
+    } else {
+        let carData = req.body;
+        let errors = [];
+        if (!carData.id) {
+            errors.push('No VIN provided');
+        }
+        if (!carData.VIN) {
+            errors.push('No VIN provided');
+        }
+        if (!carData.Brand) {
+            errors.push('No Brand provided');
+        }
+        if (!carData.Model) {
+            errors.push('No Model provided');
+        }
+        if (!carData.VehicleType) {
+            errors.push('No VehicleType provided');
+        }
+        if (!carData.Timetomarket) {
+            errors.push('No Timetomarket provided');
+        }
+        if (!carData.Years) {
+            errors.push('No Years provided');
+        }
+        if (!carData.Usedcar) {
+            errors.push('No Usedcar provided');
+        }
+        if (!carData.Exterior) {
+            errors.push('No Exterior provided');
+        }
+        if (!carData.Interior) {
+            errors.push('No Interior provided');
+        }
+        if (!carData.Style) {
+            errors.push('No Style provided');
+        }
+        if (!carData.Price) {
+            errors.push('No Price provided');
+        }
+        if (!carData.Mileage) {
+            errors.push('No Mileage provided');
+        }
+        if (!carData.img) {
+            errors.push('No img provided');
+        }
+        if (errors.length > 0) {
+            res.render('login/update', {
+                errors: errors,
+                hasErrors: true,
+                post: carData
+            });
+            return;
+        }
+        // console.log(carData)
+        let id = carData.id
+        // console.log(id)
+        delete carData.id
+        // console.log(carData)
+        carData.Usedcar = (carData.Usedcar == 'true');
+        try {
+            const update = await cars.updateCar(id, carData);
+            // res.redirect(`/newcars/${update._id}`);
+            res.render('login/update-result', { title: 'update result', IsUpdate: true, id: id });
+            // res.redirect('/login/addedcar/${newcar._id}');
+        } catch (e) {
+            // res.status(500).json({ error: e });
+            res.render('login/update-result', { title: 'update result', IsUpdate: false, id: id });
+        }
     }
+});
 
-    if (errors.length > 0) {
-        res.render('login/delete', {
-            errors: errors,
-            hasErrors: true,
-            post: carData
-        });
-        return;
-    }
-    console.log(carData)
-    let id=carData.id
-    console.log(id)
-    // delete carData.id
-    // console.log(carData)
-    // carData.Usedcar = (carData.Usedcar == 'true');
-    try {
-        const deletecar = await cars.removeOneCar(id);
-        res.render('login/delete-result', { title: 'Delete result', IsDelete: deletecar, id: req.body.id });
-        // res.redirect(`/login`);
-        // res.redirect('/login/addedcar/${newcar._id}');
-    } catch (e) {
-        res.render('login/delete-result', { title: 'Delete result', IsDelete: false, id: req.body.id });
-        // res.status(500).json({ error: e });
+router.post('/delete', async (req, res) => {
+    if (req.body.search) {
+        const carlist = await data.cars.SearchCar(req.body.search);
+        res.render('posts/searchresult', { cars: carlist });
+    } else {
+        let carData = req.body;
+        let errors = [];
+        if (!carData.id) {
+            errors.push('No id provided');
+        }
+
+        if (errors.length > 0) {
+            res.render('login/delete', {
+                errors: errors,
+                hasErrors: true,
+                post: carData
+            });
+            return;
+        }
+        console.log(carData)
+        let id = carData.id
+        console.log(id)
+        // delete carData.id
+        // console.log(carData)
+        // carData.Usedcar = (carData.Usedcar == 'true');
+        try {
+            const deletecar = await cars.removeOneCar(id);
+            res.render('login/delete-result', { title: 'Delete result', IsDelete: deletecar, id: req.body.id });
+            // res.redirect(`/login`);
+            // res.redirect('/login/addedcar/${newcar._id}');
+        } catch (e) {
+            res.render('login/delete-result', { title: 'Delete result', IsDelete: false, id: req.body.id });
+            // res.status(500).json({ error: e });
+        }
     }
 });
 
@@ -300,38 +325,43 @@ router.get("/addoffer", (req, res) => {
     }
 });
 
-router.post("/addoffer", async(req, res) => {
-    let blogPostData = req.body;
-    let errors = [];
+router.post("/addoffer", async (req, res) => {
+    if (req.body.search) {
+        const carlist = await data.cars.SearchCar(req.body.search);
+        res.render('posts/searchresult', { cars: carlist });
+    } else {
+        let blogPostData = req.body;
+        let errors = [];
 
-    if (!blogPostData.title) {
-        errors.push('No title provided');
-    }
+        if (!blogPostData.title) {
+            errors.push('No title provided');
+        }
 
-    if (!blogPostData.body) {
-        errors.push('No body provided');
-    }
-    if (errors.length > 0) {
-        res.render('login/addoffer', {
-            errors: errors,
-            hasErrors: true,
-            post: blogPostData
-        });
-        return;
-    }
-    try {
-        const newPost = await postData.addPost(
-            blogPostData.title,
-            blogPostData.body,
-        );
-        res.redirect('/login');
-    } catch (e) {
-        console.log("2")
-        res.status(500).json({ error: e });
+        if (!blogPostData.body) {
+            errors.push('No body provided');
+        }
+        if (errors.length > 0) {
+            res.render('login/addoffer', {
+                errors: errors,
+                hasErrors: true,
+                post: blogPostData
+            });
+            return;
+        }
+        try {
+            const newPost = await postData.addPost(
+                blogPostData.title,
+                blogPostData.body,
+            );
+            res.redirect('/login');
+        } catch (e) {
+            console.log("2")
+            res.status(500).json({ error: e });
+        }
     }
 });
 
-router.get('/logout', async(req, res) => {
+router.get('/logout', async (req, res) => {
     req.session.destroy();
     res.redirect("/");
 });

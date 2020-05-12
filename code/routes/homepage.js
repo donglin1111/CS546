@@ -25,7 +25,10 @@ const userData = data.users;
 router.get('/', async(req, res) => {
     res.render('posts/homepage');
 });
-
+router.post('/', async (req, res) => {
+    const carlist = await data.cars.SearchCar(req.body.search);
+    res.render('posts/searchresult', { cars: carlist });
+});
 // router.post('/', async(req, res) => {
 //     let blogPostData = req.body;
 //     let errors = [];
