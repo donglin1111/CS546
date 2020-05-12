@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/public/css/private.css">
+<span class="home" style="cursor:pointer" onclick="openNav()">&#9776; Open</span>
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  		<a href="/login" >Main</a>
+		<a href="/login/allcars">All Cars</a>
+		<a href="/login/addcar" >Add Car</a>
+		<a href="/login/delete" >Delete Car</a>
+		<a href="/login/update" >Update Car</a>	
+		<a href="/public/index.html" >Search Car</a>	
+		<a href="/login/addoffer" >Add Offer</a>	
+		<a href="/login/logout">Logout</a> 
+</div>
+<div class="user-panel">
+    <h2>Logged in as: {{{user.lastname}}}</h2>
+        <div class="col-sm-12">
+            <form action="/login/update" class="update" method="POST">
+                    <p> 
+                        <label>
+                            Car id
+                            <input type="text" name="id" placeholder="id" value="" class="update-input" />
+                        </label>                        
+                        <label>
+                            New VIN
+                            <input type="text" name="VIN" placeholder="VIN" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Brand
+                            <input type="text" name="Brand" placeholder="i.e Audi" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Model
+                            <input type="text" name="Model" placeholder="i.e Q8" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New VehicleType
+                            <input type="text" name="VehicleType" placeholder="i.e Premium Plus" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Timetomarket
+                            <input type="text" name="Timetomarket" placeholder="mm/dd/yyyy" value=""
+                                class="update-input" />
+                        </label></p>
+                    <p><label>
+                            New Year
+                            <input type="text" name="Years" placeholder="i.e 2020" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Exterior
+                            <input type="text" name="Exterior" placeholder="i.e Red" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Interior 
+                            <input type="text" name="Interior" placeholder="i.e Blue" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Style
+                            <input type="text" name="Style" placeholder="i.e SUV" value="" class="update-input" />
+                        </label>
+                        <label>
+                            New Mileage
+                            <input type="text" name="Mileage" placeholder="i.e 10000" value="" class="update-input" />
+                        </label></p>
+                    <p>
+                        <label>
+                            New Price
+                            <input type="text" name="Price" placeholder="i.e $20000" value="" class="update-input" />
+                        </label>
+                    </p>
+                    <p><label>
+                            Usedcar?
+                            <input type="radio" name="Usedcar" value="true" class="update-input" />Yes
+                            <input type="radio" name="Usedcar" value="false" class="update-input" />No
+                        </label></p>
+                    <p><label>
+                            Upload image
+                            <input type="file" name="img" accept="image/*" class="update-input">
+                        </label></p>
+                    <p><button type="submit" id="butt1">submit</button></p>
+            </form>
+              {{#if hasErrors}}
+                <ul class="error-list">
+                    {{#each errors}}
+                    <li>
+                    {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+        </div>
+</div>
+
+<script src="/public/js/private.js"></script>
