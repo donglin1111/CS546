@@ -1,6 +1,6 @@
 
 	<link rel="stylesheet" href="/public/css/private.css">
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Home</span>
+	<span class="home" style="cursor:pointer" onclick="openNav()">&#9776; Open</span>
 	<div id="mySidenav" class="sidenav">
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  		<a href="/login" >Main</a>
@@ -13,9 +13,14 @@
 			<a href="/login/logout">Logout</a> 
 	</div>
 	<div class="user-panel">
-		<h2>Logged in as: {{{user.lastname}}}</h2>
-		
-		<div class="w3-container w3-teal">
+		<h2>Logged in as: {{{user.firstname}}} {{{user.lastname}}}</h2>
+		<div class="i-container" value="{{_id}}">
+			<p>
+				Total Number of Car: <input type="text" placeholder="{{total}}"readonly="readonly"><br>
+				Total Number of New Car: <input type="text" placeholder="{{Number_newcar}}"readonly="readonly"><br>
+				Total Number of Used Car: <input type="text" placeholder="{{Number_usedcar}}"readonly="readonly"><br>
+				Total Number of Offer: <input type="text" placeholder="{{totaloffer}}"readonly="readonly">
+			</p>
 		</div>
 	</div>
 	

@@ -1,0 +1,39 @@
+    <link rel="stylesheet" href="/public/css/private.css">
+	<span class="home" style="cursor:pointer" onclick="openNav()">&#9776; Open</span>
+	<div id="mySidenav" class="sidenav">
+  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  		<a href="/login" >Main</a>
+			<a href="/login/allcars">All Cars</a>
+			<a href="/login/addcar" >Add Car</a>
+			<a href="#" >Delete Car</a>
+			<a href="/login/update" >Update Car</a>	
+			<a href="/public/index.html" >Search Car</a>	
+			<a href="/login/addoffer" >Add Offer</a>	
+			<a href="/login/logout">Logout</a> 
+	</div>
+
+	<div class="user-panel">
+        <h1 style="text-align:center">Added This Car</h1>
+        <div class="allcar-container">
+            <div class="newcar-container">
+                <div class="img-container" >
+                    <img src="/public/images/{{car.img}}"> 
+                </div>
+                <div class="sinfo-container">
+                    <a href="/newcars/{{car._id}}"> {{car.Years}} {{car.Brand}} {{car.Model}} {{car.VehicleType}}</a>
+                    <p class="carinfo">
+                        VIN: {{car.VIN}}<br>
+                        Exterior: {{car.Exterior}}<br>
+                        Interior: {{car.Interior}}<br>
+                        Timetomarket: {{car.Timetomarket}}<br>
+                        Style: {{car.Style}}<br>
+                        Mileage: {{car.Mileage}}<br>
+                        Price: {{car.Price}}<br>
+                        Usedcar: {{#if car.Usedcar}} Used {{else}} New {{/if}} <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+ <script src="/public/js/private.js"></script>

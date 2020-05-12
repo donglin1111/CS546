@@ -1,31 +1,23 @@
-<style>
-    p {
-        color: black;
-    }
-</style>
-
-
 <link rel="stylesheet" href="/public/css/private.css">
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<span class="home" style="cursor:pointer" onclick="openNav()">&#9776; Open</span>
 <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/login">Main</a>
-    <a href="/login/allcars">All Cars</a>
-    <a href="/login/addcar">Add Car</a>
-    <a href="#">Delete Car</a>
-    <a href="">Update Car</a>
-    <a href="/login/logout">Logout</a>
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  		<a href="/login" >Main</a>
+		<a href="/login/allcars">All Cars</a>
+		<a href="/login/addcar" >Add Car</a>
+		<a href="#" >Delete Car</a>
+		<a href="/login/update" >Update Car</a>	
+		<a href="/public/index.html" >Search Car</a>	
+		<a href="/login/addoffer" >Add Offer</a>	
+		<a href="/login/logout">Logout</a> 
 </div>
 <div class="user-panel">
     <h2>Logged in as: {{{user.lastname}}}</h2>
-    <div class="w3-container w3-teal">
-        <div class="row">
-            <div class="col-sm-12">
-                <link rel="stylesheet" href="/public/css/update.css">
-                <form class="newcar" method="POST">
+        <div class="col-sm-12">
+            <form action="/login/addcar" class="newcar" method="POST">
                     <p><label>
                             Car VIN
-                            <input type="text" name="VIN" placeholder="Unique Vin" value="" class="addcar-input" />
+                            <input type="text" name="VIN" placeholder="VIN" value="" class="addcar-input" />
                         </label>
                         <label>
                             Car Brand
@@ -33,11 +25,11 @@
                         </label>
                         <label>
                             Car Model
-                            <input type="text" name="Model" placeholder="i.e SUV" value="" class="addcar-input" />
+                            <input type="text" name="Model" placeholder="i.e Q8" value="" class="addcar-input" />
                         </label>
                         <label>
                             Car type
-                            <input type="text" name="VehicleType" placeholder="i.e A3" value="" class="addcar-input" />
+                            <input type="text" name="VehicleType" placeholder="i.e Premium Plus" value="" class="addcar-input" />
                         </label>
                         <label>
                             Time to market
@@ -45,7 +37,7 @@
                                 class="addcar-input" />
                         </label></p>
                     <p><label>
-                            Year era
+                            Year
                             <input type="text" name="Years" placeholder="i.e 2020" value="" class="addcar-input" />
                         </label>
                         <label>
@@ -58,12 +50,18 @@
                         </label>
                         <label>
                             Style
-                            <input type="text" name="Style" placeholder="i.e Convertible" value="" class="addcar-input" />
+                            <input type="text" name="Style" placeholder="i.e SUV" value="" class="addcar-input" />
                         </label>
                         <label>
-                            Price
-                            <input type="text" name="Price" placeholder="i.e 10000" value="" class="addcar-input" />
+                            Mileage
+                            <input type="text" name="Mileage" placeholder="i.e 10000" value="" class="addcar-input" />
                         </label></p>
+                    <p>
+                        <label>
+                            Price
+                            <input type="text" name="Price" placeholder="i.e $20000" value="" class="addcar-input" />
+                        </label>
+                    </p>
                     <p><label>
                             Usedcar
                             <input type="radio" name="Usedcar" value="true" class="addcar-input" />Yes
@@ -74,10 +72,17 @@
                             <input type="file" name="img" accept="image/*" class="addcar-input">
                         </label></p>
                     <p><button type="submit" id="butt1">submit</button></p>
-                </form>
-            </div>
+            </form>
+              {{#if hasErrors}}
+                <ul class="error-list">
+                    {{#each errors}}
+                    <li>
+                    {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
         </div>
-    </div>
 </div>
 
 <script src="/public/js/private.js"></script>

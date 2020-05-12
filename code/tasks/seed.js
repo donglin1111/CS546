@@ -18,19 +18,19 @@ admin2 = {
 }
 
 car1 = {
-    VIN: "7J3ZZ56Y78230003",
+    VIN: "WA1BVAF17KD009168",
     Brand: "Audi",
     Model: "Q8",
-    VehicleType: "SUV",
+    VehicleType: "Premium Plus",
     Timetomarket: "08/12/2020",
-    Years: "2010",
-    Exterior: "Silver",
-    Interior: "Yello",
-    Style: "comfort",
-    Price: "$45000",
-    Mileage: "21000",
+    Years: "2015",
+    Exterior: "Black",
+    Interior: "Black",
+    Style: "SUV",
+    Price: "$60,998",
+    Mileage: "11000",
     img: "Audi_Q8.jpg",
-    Usedcar: false
+    Usedcar: true
 }
 car2 = {
     VIN: "SCBDG4ZG6LC076056",
@@ -82,34 +82,75 @@ car5 = {
     VIN: "YT9XC81B98A007066",
     Brand: "Koenigsegg",
     Model: "CCX",
-    VehicleType: "CCX",
+    VehicleType: " ",
     Timetomarket: "08/12/2008",
     Years: "2008",
     Exterior: "Silver",
     Interior: "Blue",
     Style: "Convertible",
     Price: "$1,595,000",
-    Mileage: "29",
+    Mileage: "2229",
     img: "Koenigsegg_YT9XC81B98A007066.jpg",
     Usedcar: true
+}
+car6 = {
+    VIN: "SCBET9ZA2F8049209",
+    Brand: "Bentley",
+    Model: "Flying Spur",
+    VehicleType: "V8",
+    Timetomarket: "08/12/2015",
+    Years: "2015",
+    Exterior: "White Sand Metallic",
+    Interior: "Linen",
+    Style: "Sedan",
+    Price: "$103,995",
+    Mileage: "7546",
+    img: "Bentley_SCBET9ZA2F8049209.jpg",
+    Usedcar: true
+}
+car7 = {
+    VIN: "SLA689X52KU114058",
+    Brand: "Rolls-Royce",
+    Model: "Cullinan",
+    VehicleType: "AWD",
+    Timetomarket: "08/12/2019",
+    Years: "2019",
+    Exterior: "Arctic White",
+    Interior: "Seashell",
+    Style: "SUV",
+    Price: "$417,675",
+    Mileage: "22",
+    img: "2019_Rolls-Royce_Cullinan.jpg",
+    Usedcar: false
+}
+car8 = {
+    VIN: "VF9SP3V34LM795264",
+    Brand: "Bugatti",
+    Model: "Chiron",
+    VehicleType: "Sport",
+    Timetomarket: "08/12/2020",
+    Years: "2020",
+    Exterior: "Black Carbon",
+    Interior: "French Blue",
+    Style: "Coupe",
+    Price: "CALL FOR PRICE",
+    Mileage: "249",
+    img: "2020_Bugatti_Chiron.jpg",
+    Usedcar: false
 }
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
     const admin1s = await users.addUser(admin1);
-    console.log(admin1s);
     const admin2s = await users.addUser(admin2);
-    console.log(admin2s);
     const car1s = await newcar.addCars(car1);
-    console.log(car1s);
     const car2s = await newcar.addCars(car2);
-    console.log(car2s);
     const car3s = await newcar.addCars(car3);
-    console.log(car3s);
     const car4s = await newcar.addCars(car4);
-    console.log(car4s);
     const car5s = await newcar.addCars(car5);
-    console.log(car5s);
+    const car6s = await newcar.addCars(car6);
+    const car7s = await newcar.addCars(car7);
+    const car8s = await newcar.addCars(car8);
     await posts.addPost('Audi', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 

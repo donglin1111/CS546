@@ -1,15 +1,27 @@
 <section>
-  <link rel="stylesheet" href="/public/css/homepage.css">
   <link rel="stylesheet" href="/public/css/newcar.css">
   <div class="bigtitle">
       <h1 style="text-align:center">USED CARS</h1>
-      <div class="newcar-container">
+      <div class="allcar-container">
       {{#each cars}}  
         {{#if Usedcar}}
-          <p> <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Color:{{Color}}</option></p> 
-          <img src="/public/images/{{img}}">
+        <div class="newcar-container" value="{{_id}}">
+          <div class="img-container" >
+              <img src="/public/images/{{img}}"> 
+          </div>
+          <div class="info-container">
+             <a href="/posts/{{_id}}"> {{Years}} {{Brand}} {{Model}} {{VehicleType}}</a>
+             <p class="carinfo">
+                Exterior: {{Exterior}}<br>
+                Interior: {{Interior}}<br>
+                Body: {{Style}}<br>
+                Mileage: {{Mileage}}<br>
+                Price: {{Price}}
+            </p>
+          </div>
+        </div>
         {{/if}}
       {{/each}}
 		</div>
   </div>
-</section>
+</section>  

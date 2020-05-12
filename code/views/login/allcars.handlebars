@@ -1,29 +1,36 @@
-
-	<style>
-        .car-container{
-            position: absolute;
-            color: black;
-            
-        }
-    </style>
     <link rel="stylesheet" href="/public/css/private.css">
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+	<span class="home" style="cursor:pointer" onclick="openNav()">&#9776; Open</span>
 	<div id="mySidenav" class="sidenav">
   	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  		<a href="/login" >Main</a>
-			<a href="/login/allcars" >All Cars</a>
+			<a href="/login/allcars">All Cars</a>
 			<a href="/login/addcar" >Add Car</a>
 			<a href="#" >Delete Car</a>
 			<a href="/login/update" >Update Car</a>	
+			<a href="/public/index.html" >Search Car</a>	
 			<a href="/login/addoffer" >Add Offer</a>	
 			<a href="/login/logout">Logout</a> 
 	</div>
+
 	<div class="user-panel">
 		<h2>Logged in as: {{{user.lastname}}}</h2>
 		<div class="car-container">
         {{#each cars}}  
-			 <option value="{{_id}}">VIN:{{VIN}} || Brand:{{Brand}} || Model:{{Model}} || VehicleType:{{VehicleType}} || Timetomarket:{{Timetomarket}} || Years:{{Years}} || Used:{{Usedcar}} || Exterior:{{Exterior}} || Interior:{{Exterior}} || Price:{{Exterior}} || Style:{{Style}}</option>
-			 </option><img src="/public/images/{{img}}"></p>
+		  <div class="newcar-container" value="{{_id}}">
+          <div class="img-container" >
+              <img src="/public/images/{{img}}"> 
+          </div>
+          <div class="info-container">
+             <a href="/posts/{{_id}}"> {{Years}} {{Brand}} {{VehicleType}}</a>
+             <p class="carinfo">
+                Exterior: {{Exterior}}<br>
+                Interior: {{Interior}}<br>
+                Body: {{Style}}<br>
+                Mileage: {{Mileage}}<br>
+                Price: {{Price}}
+            </p>
+          </div>
+        </div>
         {{/each}}
 		</div>
 	</div>

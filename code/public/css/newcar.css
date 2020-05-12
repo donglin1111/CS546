@@ -7,6 +7,11 @@ img {
     height: 100%;
 }
 
+body {
+    background-image: url("/public/images/background.jpg");
+    background-color: #cccccc;
+}
+
 .newcar-container {
     width: 100%;
     color: #000;
@@ -15,13 +20,9 @@ img {
     padding: 0;
 }
 
-.newcar-container p {
-    color: #000;
-}
-
 .img-container {
     float: left;
-    width: 450px;
+    width: 550px;
     height: 300px;
     color: #000;
     border-style: solid;
@@ -29,9 +30,35 @@ img {
 }
 
 .info-container {
-    width: 300px;
+    width: 60%;
     margin-left: 500px;
-    border-style: solid;
-    background-color: white;
+    /* border-style: solid; */
     height: 300px;
+}
+
+.info-container a {
+    line-height: 55px;
+    font-size: 25px;
+}
+
+.info-container p {
+    font-size: 20px;
+    color: #fff;
+}
+
+.sinfo-container {
+    width: 60%;
+    margin-left: 500px;
+    /* border-style: solid; */
+    height: 300px;
+}
+
+.sinfo-container a {
+    line-height: 55px;
+    font-size: 30px;
+}
+
+.sinfo-container p {
+    font-size: 15px;
+    color: #fff;
 }

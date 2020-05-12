@@ -6,10 +6,12 @@
   <div class="bigtitle">
       <h1 style="text-align:center">Offers</h1>
 
-  	<div class="offers-container">
+  	<div class="offers-container" value="{{_id}}">
       {{#each offers}}  
-		  <option value="{{_id}}"></option><p>title:{{title}}<br>
-                body:{{body}}</p></option>
+      <div class="subcontainer">
+		          <p>Title:{{title}}<br>
+                Body:{{body}}</p></option>
+      </div>
       {{/each}}
 		</div>
 
