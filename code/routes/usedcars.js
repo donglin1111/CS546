@@ -40,6 +40,9 @@ router.get('/used-cars/:id', async(req, res) => {
     } else {
         res.redirect('/used-cars')
     }
-})
-
+});
+router.post('/', async (req, res) => {
+    const carlist = await data.cars.SearchCar(req.body.search);
+    res.render('posts/searchresult', { cars: carlist });
+});
 module.exports = router;

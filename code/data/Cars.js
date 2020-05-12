@@ -95,6 +95,12 @@ let exportedMethods = {
         if (!carList) throw 'No cars in system!';
         return carList;
     },
+    async SearchCar(Brand) {
+        const carCollection = await cars();
+        const carList = await carCollection.find({Brand:Brand}).toArray();
+        if (!carList) throw 'No cars in system!';
+        return carList;
+    },
     async removeOneCar(id) {
         const carCollection = await cars();
         const deletionInfo = await carCollection.removeOne({ _id: id });

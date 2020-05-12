@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/public/css/private.css">
+<div class="user-panel">
+    <h2>Logged in as: {{{user.lastname}}}</h2>
+    <div class="car-container">
+        {{#each cars}}
+        <div class="newcar-container" value="{{_id}}">
+            <div class="img-container">
+                <img src="/public/images/{{img}}">
+            </div>
+            <div class="info-container">
+                <a href="/posts/{{_id}}"> {{Years}} {{Brand}} {{VehicleType}}</a>
+                <p class="carinfo">
+                    Exterior: {{Exterior}}<br>
+                    Interior: {{Interior}}<br>
+                    Body: {{Style}}<br>
+                    Mileage: {{Mileage}}<br>
+                    Price: {{Price}}
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
