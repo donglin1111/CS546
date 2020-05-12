@@ -1,0 +1,17 @@
+<article>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+
+  <p style="color:#000;font-weight:bold;font-size:20px" >id: {{id}}</p>
+  {{#if IsUpdate}}
+    <p style="color:#000;font-weight:bold;font-size:20px">Congratulate! id: '{{id}}' is updated</p>
+    <p>{{car}}</p>
+  {{else}}
+    <p style="color:#000;font-weight:bold;font-size:20px">Sorry. id: '{{id}}' is not updated</p>
+  {{/if}}
+
+      <a href="/login">Return to your homepage</a><br>
+    <a href="/login/update">Update another car</a>
+</article>
