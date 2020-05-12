@@ -21,6 +21,7 @@ let exportedMethods = {
         const Interior = bodypart.Interior;
         const Price = bodypart.Price;
         const Style = bodypart.Style;
+        const Mileage = bodypart.Mileage;
         const Carimage = bodypart.img;
         if (!VIN) throw "VIN cannot be null";
         if (typeof VIN !== "string") throw "The VIN for Cars must be a string";
@@ -52,17 +53,15 @@ let exportedMethods = {
         if (typeof Exterior !== "string") throw "The Exterior for Cars must be a string";
         if (!Interior) throw "Interior cannot be null";
         if (typeof Interior !== "string") throw "The Interior for Cars must be a string";
-
         if (!Price) throw "Price cannot be null";
-        price = parseInt(Price);
-        console.log(price);
-        if (isNaN(price)) throw " The Price must be an number string for car";
-
+        if (typeof Price !== "string") throw " The Price must be an number string for car";
         if (!Style) throw "Style cannot be null";
         if (typeof Style !== "string") throw "The Style for Cars must be a string";
         if (typeof Usedcar !== "boolean") throw "The Usedcar for Cars must be a boolean";
         if (!Carimage) throw "The image of car cannot be null";
         if (typeof Carimage !== "string") throw "The image for Cars must be a string";
+        if (!Mileage) throw "The Mileage of car cannot be null";
+        if (typeof Mileage !== "string") throw "The Mileage for Cars must be a string";
         const carCollection = await cars();
         var newCar = {
             VIN: VIN,
@@ -76,6 +75,7 @@ let exportedMethods = {
             Interior: Interior,
             Style: Style,
             Price: Price,
+            Mileage: Mileage,
             img: Carimage,
             _id: uuidv4()
         };
@@ -117,6 +117,7 @@ let exportedMethods = {
             Interior: bodypart.Interior,
             Style: bodypart.Style,
             Price: bodypart.Price,
+            Mileage: bodypart.Mileage,
             img: bodypart.Carimage,
         };
         const carCollection = await cars();

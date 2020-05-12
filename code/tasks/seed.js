@@ -23,75 +23,75 @@ car1 = {
     Model: "Q8",
     VehicleType: "SUV",
     Timetomarket: "08/12/2020",
-    Years:"2010",
+    Years: "2010",
     Exterior: "Silver",
     Interior: "Yello",
     Style: "comfort",
-    Price: "5000",
+    Price: "$45000",
+    Mileage: "21000",
     img: "Audi_Q8.jpg",
     Usedcar: false
 }
 car2 = {
     VIN: "SCBDG4ZG6LC076056",
     Brand: "Bentley",
-    Model: "Continental GT V8 Convertible",
-    VehicleType: "Convertible",
+    Model: "Continental",
+    VehicleType: "GT V8 Convertible",
     Timetomarket: "01/12/2020",
-    Years:"2020",
-    Exterior: "Silver",
-    Interior: "Yello",
-    Style: "comfort",
-    Price: "15000",
+    Years: "2020",
+    Exterior: "Glacier White",
+    Interior: "Hotspur",
+    Style: "Convertible",
+    Price: "$271,805",
+    Mileage: "21",
     img: "Bentley_SCBDG4ZG6LC076056.jpg",
     Usedcar: false
 }
 car3 = {
     VIN: "WP0CB2A95KS136454",
     Brand: "Porsche",
-    Model: "911 Carrera GTS",
-    VehicleType: "Convertible",
+    Model: "911",
+    VehicleType: "Carrera GTS Cabriolet",
     Timetomarket: "06/02/2019",
+    Years: "2019",
+    Exterior: "Carmine Red",
+    Interior: "Black",
+    Style: "Convertible",
+    Price: "$142,995",
+    Mileage: "5",
     img: "Porsche_WP0CB2A95KS136454.jpg",
-<<<<<<< Updated upstream
-    Years:"2014",
-    Exterior: "Silver",
-    Interior: "Yello",
-    Style: "comfort",
-    Price: "15000",
-    Usedcar: false
-=======
     Color: ["red"],
-
-    Usedcar: true
->>>>>>> Stashed changes
+    Usedcar: false
 }
 car4 = {
-    VIN: "AK1CB2A95KS131234",
+    VIN: "ZHWUT4ZF1LLA13280",
     Brand: "Lamborghini",
-    Model: "Huracan EVO Spyder",
-    VehicleType: "Convertible",
+    Model: "Huracan",
+    VehicleType: "Huracan EVO Spyder",
     Timetomarket: "02/01/2020",
-    Years:"2017",
-    Exterior: "Red",
-    Interior: "Blue",
-    Style: "comfort",
-    Price: "10000",
-    img: "Lamborghini_AK1CB2A95KS131234.jpg",
+    Years: "2020",
+    Exterior: "Rosso Mars",
+    Interior: "Nero Ade",
+    Style: "Convertible",
+    Price: "CALL FOR PRICE",
+    Mileage: "29",
+    img: "Lamborghini_ZHWUT4ZF1LLA13280.jpg",
     Usedcar: false
 }
 car5 = {
     VIN: "YT9XC81B98A007066",
     Brand: "Koenigsegg",
     Model: "CCX",
-    VehicleType: "Convertible",
+    VehicleType: "CCX",
     Timetomarket: "08/12/2008",
-    Years:"2020",
+    Years: "2008",
     Exterior: "Silver",
-    Interior: "Yello",
-    Style: "comfort",
-    Price: "15000",
+    Interior: "Blue",
+    Style: "Convertible",
+    Price: "$1,595,000",
+    Mileage: "29",
     img: "Koenigsegg_YT9XC81B98A007066.jpg",
-    Usedcar: false
+    Usedcar: true
 }
 async function main() {
     const db = await dbConnection();
