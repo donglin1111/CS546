@@ -92,7 +92,7 @@ router.get("/addcar", async(req, res) => {
 router.get("/update", async(req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
-        res.render("login/update", { user: req.session.user, cars: carList });
+        res.render("login/update", {title:'Update' ,user: req.session.user, cars: carList });
     } else {
         res.render("login/error");
     }
@@ -100,7 +100,7 @@ router.get("/update", async(req, res) => {
 router.get("/delete", async(req, res) => {
     const carList = await carData.getAllCar();
     if (req.session.user) {
-        res.render("login/delete", { user: req.session.user, cars: carList });
+        res.render("login/delete", {title:'Delete', user: req.session.user, cars: carList });
     } else {
         res.render("login/error");
     }
@@ -250,10 +250,12 @@ router.post('/update', async(req, res) => {
     carData.Usedcar = (carData.Usedcar == 'true');
     try {
         const update = await cars.updateCar(id,carData);
-        res.redirect(`/newcars/${update._id}`);
+        // res.redirect(`/newcars/${update._id}`);
+        res.render('login/update-result', { title: 'update result', IsUpdate: true, id: id });
         // res.redirect('/login/addedcar/${newcar._id}');
     } catch (e) {
-        res.status(500).json({ error: e });
+        // res.status(500).json({ error: e });
+        res.render('login/update-result', { title: 'update result', IsUpdate: false, id: id });
     }
 });
 
@@ -261,7 +263,7 @@ router.post('/delete', async(req, res) => {
     let carData = req.body;
     let errors = [];
     if (!carData.id) {
-        errors.push('No VIN provided');
+        errors.push('No id provided');
     }
 
     if (errors.length > 0) {
@@ -280,10 +282,12 @@ router.post('/delete', async(req, res) => {
     // carData.Usedcar = (carData.Usedcar == 'true');
     try {
         const deletecar = await cars.removeOneCar(id);
-        res.redirect(`/login`);
+        res.render('login/delete-result', { title: 'Delete result', IsDelete: deletecar, id: req.body.id });
+        // res.redirect(`/login`);
         // res.redirect('/login/addedcar/${newcar._id}');
     } catch (e) {
-        res.status(500).json({ error: e });
+        res.render('login/delete-result', { title: 'Delete result', IsDelete: false, id: req.body.id });
+        // res.status(500).json({ error: e });
     }
 });
 
