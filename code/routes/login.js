@@ -89,6 +89,22 @@ router.get("/addcar", async(req, res) => {
         res.render("login/error");
     }
 });
+router.get("/update", async(req, res) => {
+    const carList = await carData.getAllCar();
+    if (req.session.user) {
+        res.render("login/update", { user: req.session.user, cars: carList });
+    } else {
+        res.render("login/error");
+    }
+});
+router.get("/delete", async(req, res) => {
+    const carList = await carData.getAllCar();
+    if (req.session.user) {
+        res.render("login/delete", { user: req.session.user, cars: carList });
+    } else {
+        res.render("login/error");
+    }
+});
 
 router.get("/allcars", async(req, res) => {
     const carList = await carData.getAllCar();
@@ -158,10 +174,113 @@ router.post('/addcar', async(req, res) => {
         });
         return;
     }
+    console.log(carData)
+    // let VIN=carData.VIN
+    // console.log(VIN)
+    // delete carData.VIN
+    // console.log(carData)
     carData.Usedcar = (carData.Usedcar == 'true');
     try {
         const newcar = await cars.addCars(carData);
         res.redirect(`/newcars/${newcar._id}`);
+        // res.redirect('/login/addedcar/${newcar._id}');
+    } catch (e) {
+        res.status(500).json({ error: e });
+    }
+});
+
+router.post('/update', async(req, res) => {
+    let carData = req.body;
+    let errors = [];
+    if (!carData.id) {
+        errors.push('No VIN provided');
+    }
+    if (!carData.VIN) {
+        errors.push('No VIN provided');
+    }
+    if (!carData.Brand) {
+        errors.push('No Brand provided');
+    }
+    if (!carData.Model) {
+        errors.push('No Model provided');
+    }
+    if (!carData.VehicleType) {
+        errors.push('No VehicleType provided');
+    }
+    if (!carData.Timetomarket) {
+        errors.push('No Timetomarket provided');
+    }
+    if (!carData.Years) {
+        errors.push('No Years provided');
+    }
+    if (!carData.Usedcar) {
+        errors.push('No Usedcar provided');
+    }
+    if (!carData.Exterior) {
+        errors.push('No Exterior provided');
+    }
+    if (!carData.Interior) {
+        errors.push('No Interior provided');
+    }
+    if (!carData.Style) {
+        errors.push('No Style provided');
+    }
+    if (!carData.Price) {
+        errors.push('No Price provided');
+    }
+    if (!carData.Mileage) {
+        errors.push('No Mileage provided');
+    }
+    if (!carData.img) {
+        errors.push('No img provided');
+    }
+    if (errors.length > 0) {
+        res.render('login/update', {
+            errors: errors,
+            hasErrors: true,
+            post: carData
+        });
+        return;
+    }
+    // console.log(carData)
+    let id=carData.id
+    // console.log(id)
+    delete carData.id
+    // console.log(carData)
+    carData.Usedcar = (carData.Usedcar == 'true');
+    try {
+        const update = await cars.updateCar(id,carData);
+        res.redirect(`/newcars/${update._id}`);
+        // res.redirect('/login/addedcar/${newcar._id}');
+    } catch (e) {
+        res.status(500).json({ error: e });
+    }
+});
+
+router.post('/delete', async(req, res) => {
+    let carData = req.body;
+    let errors = [];
+    if (!carData.id) {
+        errors.push('No VIN provided');
+    }
+
+    if (errors.length > 0) {
+        res.render('login/delete', {
+            errors: errors,
+            hasErrors: true,
+            post: carData
+        });
+        return;
+    }
+    console.log(carData)
+    let id=carData.id
+    console.log(id)
+    // delete carData.id
+    // console.log(carData)
+    // carData.Usedcar = (carData.Usedcar == 'true');
+    try {
+        const deletecar = await cars.removeOneCar(id);
+        res.redirect(`/login`);
         // res.redirect('/login/addedcar/${newcar._id}');
     } catch (e) {
         res.status(500).json({ error: e });
@@ -206,19 +325,6 @@ router.post("/addoffer", async(req, res) => {
         console.log("2")
         res.status(500).json({ error: e });
     }
-});
-
-router.get('/delete', async (req, res) => {
-    if (req.session.user) {
-        const carList = await carData.getAllCar();
-        res.render('login/delete', { title: 'Delete', cars: carList });
-    }else{
-        res.render("login/error");
-    }
-});
-router.post('/delete', async (req, res) => {
-    const bool = await cars.removeOneCar(req.body.id);
-    res.render('login/delete-result', { title: 'Delete result', IsDelete: bool, id: req.body.id });
 });
 
 router.get('/logout', async(req, res) => {
