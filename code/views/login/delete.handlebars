@@ -23,6 +23,27 @@
 
                     <p><button type="submit" id="butt1">submit</button></p>
             </form>
+
+        <div class="car-container" style="background-color: aliceblue; white-space：normal；word-wrap：break-word；word-break：break-all;">
+        {{#each cars}}  
+            <p>------------------------------------------------------------------------------------------------------------------------------</p>
+            {{!-- <p>id: {{_id}}</p>
+            <p>Brand:{{Brand}}</p>
+            <p>Model:{{Model}}</p>
+            <p>VehicleType:{{VehicleType}}</p>
+            <p>Timetomarket:{{Timetomarket}}</p>
+            <p>Years:{{Years}}</p>
+            <p>Used:{{Usedcar}}</p>
+            <p>Exterior:{{Exterior}}</p>
+            <p>Interior:{{Interior}}</p>
+            <p>Price:{{Price}}</p>
+            <p>Style:{{Style}}</p> --}}
+            
+            <p style="white-space：normal；word-wrap：break-word；normal：normal;">id: {{_id}} <br> Brand:{{Brand}} <br> Model:{{Model}} <br> VehicleType:{{VehicleType}} <br> Timetomarket:{{Timetomarket}} <br> Years:{{Years}} <br> Used:{{Usedcar}} <br> Exterior:{{Exterior}} <br> Interior:{{Interior}} <br> Price:{{Price}} <br> Style:{{Style}}</p>            <img src="/public/images/{{img}}">
+            <br>
+        {{/each}}
+		</div>
+
               {{#if hasErrors}}
                 <ul class="error-list">
                     {{#each errors}}
