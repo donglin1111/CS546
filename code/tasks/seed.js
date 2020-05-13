@@ -256,7 +256,6 @@ car15 = {
     Usedcar: false
 }
 
->>>>>>> vrk-search-4
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
@@ -270,8 +269,6 @@ async function main() {
     const car6s = await newcar.addCars(car6);
     const car7s = await newcar.addCars(car7);
     const car8s = await newcar.addCars(car8);
-<<<<<<< HEAD
-=======
     const car9s = await newcar.addCars(car9);
     const car10s = await newcar.addCars(car10);
     const car11s = await newcar.addCars(car11);
@@ -279,7 +276,7 @@ async function main() {
     const car13s = await newcar.addCars(car13);
     const car14s = await newcar.addCars(car14);
     const car15s = await newcar.addCars(car15);
->>>>>>> vrk-search-4
+
     await posts.addPost('Audi', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 
