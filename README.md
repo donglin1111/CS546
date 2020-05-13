@@ -3,5 +3,7 @@ The purpose of the application is to provide the customers a convenient means to
 
 Run Application commands:
 $ npm install
+
 $ node ./tasks/seed.js
+
 $ npm start
