@@ -17,5 +17,8 @@ router.get('/:id', async(req, res) => {
         res.status(500).json({ error: e });
     }
 })
-
+router.post('/', async (req, res) => {
+    const carlist = await data.cars.SearchCar(req.body.search);
+    res.render('posts/searchresult', { cars: carlist });
+});
 module.exports = router;
