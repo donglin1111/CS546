@@ -138,8 +138,6 @@ car8 = {
     img: "2020_Bugatti_Chiron.jpg",
     Usedcar: false
 }
-<<<<<<< HEAD
-=======
 car9 = {
     VIN: "YT9XC81B98A007346",
     Brand: "Toyota",
