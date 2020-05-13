@@ -62,3 +62,28 @@ body {
     font-size: 15px;
     color: #fff;
 }
+
+.icontainer {
+    width: 100%;
+    color: #000;
+    border-style: solid;
+    margin: 10px;
+    padding: 0;
+}
+
+.icontainer h3 {
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(41, 192, 238);
+}
+
+.icontainer h2 {
+    margin-left: 10px;
+    font-size: 35px;
+    color: red;
+}
+
+.icontainer p {
+    margin-left: 20px;
+    font-size: 15px;
+}
