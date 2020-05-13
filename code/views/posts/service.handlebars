@@ -1,0 +1,125 @@
+
+
+<link rel="stylesheet" href="/public/css/services.css">
+  
+<section>
+  <link rel="stylesheet" href="/public/css/homepage.css">
+  <div class="bigtitle">
+      <h1 style="text-align:center">Services</h1>
+
+<div id="wrap">
+<div id="top">
+<p id='clean'>
+<font>Clean</font>
+<span>No</span>
+<span>Yes</span>
+
+<p id='paint'>
+<font>Repainting</font>
+<span>none</span>
+<span>Car Body only</span>
+<span>Car Body and interior</span>
+</p>
+</p>
+<p id='color'>
+<font>color</font>
+<span id="red">red</span>
+<span id="blue">blue</span>
+<span id="green">green</span>
+<span id="black">black</span>
+<span id="grey">grey</span>
+</p>
+
+<p id='deliver'>
+<font>Delivery</font>
+<span>self-collection</span>
+<span>Within the state</span>
+<span>Nationwide</span>
+</p>
+</div>
+<div id="bottom">
+<p>Price: <font>$ <span id='price'>00</span>.00</font></p>
+<button type="button" onclick="show()"> contact us</button>
+<p id="contact" class="contact hidden"> <br> 
+            <i class="fa fa-map-marker"  style="font-size:15px"></i> Our Address: 1 Castle Point Terrace, Hoboken, NJ 07030<br>
+            <i class="fa fa-mobile-phone" style="font-size:20px"></i> Service Hotline: (813)-334-1619
+</p>
+</div>
+</div>
+    <div class="icontainer">
+		<h2 style="text-align:center">Tips</h2>
+        <h3>Maintaining your vehicle</h3>
+        <p>Routine maintenance and upkeep can greatly extend the life of your car, truck or SUV. Still, many people wait until there are major issues before visiting a shop. Failing to properly service your vehicle can result in increased repair costs, as well as greatly reducing its value.</p>
+	    <h3>Oil change</h3>
+        <p>Easily topping the list of routine maintenance musts is an oil change. Scheduling this service every three months or 3,000 miles will not only help to ensure your vehicle remains running smoothly, but will also extend the life of your engine. Keep in mind that with advancements in automotive technology, most newer vehicles can go 5,000 miles or beyond between oil changes. If your vehicle has logged more than 100,000 miles, a synthetic blend oil will help.</p>
+        <h3>Filters</h3>
+        <p>Your vehicle's filters should be changed between 15,000 and 30,000 miles. Most can be inspected or replaced during a routine oil change. These include the engine air filter, oil filter, fuel filter and cabin air filter.</p>
+  	    
+	</div>
+<script>
+var mSpan = document.getElementById('clean').getElementsByTagName('span'); 
+var cSpan = document.getElementById('color').getElementsByTagName('span'); 
+var rSpan = document.getElementById('paint').getElementsByTagName('span'); 
+var bSpan = document.getElementById('deliver').getElementsByTagName('span'); 
+var aSpan = document.getElementsByTagName('span'); 
+var oMode = document.getElementById('clean'); 
+var oServ = document.getElementById('paint'); 
+var oNew = document.getElementById('deliver'); 
+var oPrice = document.getElementById('price'); 
+mSpan[0].className ='on'; 
+cSpan[0].className ='on'; 
+rSpan[0].className ='on'; 
+bSpan[0].className ='on'; 
+for (var i=0; i<aSpan.length;i++) { 
+	aSpan[i].onclick = function() { 
+		var siblings = this.parentNode.children; 
+		for (var j=0; j<siblings.length;j++) { 
+			siblings[j].className =''; 
+		}
+		this.className ='on';
+		if (this.parentNode == oMode || this.parentNode == oServ || this.parentNode == oNew) { 
+			price(); 
+		}
+	}; 
+};
+function price() { 
+	var p1 = 0; 
+	var p2 = 0; 
+    var p3 = 0;
+	for (var i=0; i<mSpan.length;i++) { 
+		if (mSpan[i].className == 'on') { 
+			p1 = i?20:0; break; 
+      
+		}; 
+	}; 
+	for (var i=0; i<rSpan.length;i++) { 
+		if (rSpan[i].className == 'on') { 
+			switch (i) { 
+				case 0:p2 = 0; break; 
+				case 1:p2 = 200; break; 
+				case 2:p2 = 350; break; 
+			}
+		}
+	}; 
+  	for (var i=0; i<bSpan.length;i++) { 
+		if (bSpan[i].className == 'on') { 
+			switch (i) { 
+				case 0:p3 = 0; break; 
+				case 1:p3 = 300; break; 
+				case 2:p3 = 700; break; 
+			}
+		}
+	}; 
+	oPrice.innerHTML = p1+p2+p3; 
+}; 
+</script>
+
+<script>
+    function show(){
+        const contact=document.getElementById("contact")
+        contact.classList.remove("hidden")
+    }
+</script>
+
+  </div>
+</section>
