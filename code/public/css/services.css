@@ -1,0 +1,97 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-image: url("/public/images/background.jpg");
+    background-color: #cccccc;
+}
+
+#wrap { 
+    width: 600px; 
+    height: 400px; 
+    margin: 50px auto; 
+}
+#top { 
+    width: 600px; 
+    height: 220px; 
+    border-bottom: 1px solid rgb(24, 9, 230); 
+    font-family: 'Microsoft yahei'; 
+}
+/* #top p { 
+    margin-bottom: 15px; 
+} */
+#top p font { 
+    font-size: 16px; 
+    color: rgb(242, 247, 0); 
+    margin-right: 15px; 
+}
+#top p span { 
+    font-size: 14px; 
+    color: wheat; 
+    border: 1px solid rgb(255, 255, 255); 
+    display: inline-block; 
+    padding: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+}
+#top p span.on { 
+    border: 2px solid #f60; 
+    padding: 7px; 
+
+}
+#bottom { 
+    width: 600px; 
+    height: 159px; 
+    padding-top: 20px; 
+    font-family: 'Microsoft yahei'; 
+}
+#bottom p font { 
+    color: #f60; 
+    font-size: 20px; 
+    margin-right: 20px; 
+}
+#bottom p a { 
+    font-size: 14px; 
+    color: blue; 
+}
+#bottom p a i { 
+    margin: 0 5px; 
+    color: #90c; 
+}
+#bottom button { 
+    width: 330px; 
+    height: 50px; 
+    font-family: 'Microsoft yahei'; 
+    margin-top: 20px; 
+    font-size: 20px; 
+    background: #f60; 
+    color: #fff; 
+    border: none; 
+}
+
+#red{
+    background-color: red;
+    font-weight: bolder;
+}
+
+#blue{
+    background-color: blue;
+    font-weight: bolder;
+}
+
+#green{
+    background-color: green;
+    font-weight: bolder;
+}
+
+#black{
+    background-color: black;
+    font-weight: bolder;
+}
+
+#grey{
+    background-color: grey;
+    font-weight: bolder;
+}
