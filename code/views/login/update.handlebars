@@ -69,8 +69,13 @@
                     </p>
                     <p><label>
                             Usedcar?
-                            <input type="radio" name="Usedcar" value="true" class="update-input" />Yes
-                            <input type="radio" name="Usedcar" value="false" class="update-input" />No
+                            {{!-- <input type="radio" name="Usedcar" value="true" class="update-input" />Yes
+                            <input type="radio" name="Usedcar" value="false" class="update-input" />No --}}
+                            <select name="Usedcar" class="update-input">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>                                
+                            </select>
+
                         </label></p>
                     <p><label>
                             Upload image
@@ -79,12 +84,12 @@
                     <p><button type="submit" id="butt1">submit</button></p>
             </form>
 
-        <div class="car-container" style="background-color: aliceblue; white-space：normal；word-wrap：break-word；word-break：break-all;">
+        <div class="car-container" style="background-color: aliceblue; white-space: normal; word-wrap: break-word;word-break: break-all;">
         {{#each cars}}  
             <p>------------------------------------------------------------------------------------------------------------------------------</p>
             
-            <p style="white-space：normal；word-wrap：break-word；normal：normal;">id: {{_id}} <br> Brand:{{Brand}} <br> Model:{{Model}} <br> VehicleType:{{VehicleType}} <br> Timetomarket:{{Timetomarket}} <br> Years:{{Years}} <br> Used:{{Usedcar}} <br> Exterior:{{Exterior}} <br> Interior:{{Interior}} <br> Price:{{Price}} <br> Style:{{Style}}</p>
-            <img src="/public/images/{{img}}">
+            <p style="white-space: normal; word-wrap: break-word; word-break: normal;">id: {{_id}} <br> Brand:{{Brand}} <br> Model:{{Model}} <br> VehicleType:{{VehicleType}} <br> Timetomarket:{{Timetomarket}} <br> Years:{{Years}} <br> Used:{{Usedcar}} <br> Exterior:{{Exterior}} <br> Interior:{{Interior}} <br> Price:{{Price}} <br> Style:{{Style}}</p>
+            <img src="/public/images/{{img}}" alt="carpicture">
             <br>
         {{/each}}
 
@@ -98,6 +103,7 @@
                 </ul>
                 {{/if}}
         </div>
+</div>
 </div>
 
 <script src="/public/js/private.js"></script>
