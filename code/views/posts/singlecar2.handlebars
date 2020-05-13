@@ -1,0 +1,25 @@
+<section>
+  <link rel="stylesheet" href="/public/css/newcar.css">
+  <div class="bigtitle">
+      <div class="allcar-container">
+            <div class="newcar-container">
+                <div class="img-container" >
+                    <img src="/public/images/{{car.img}}"> 
+                </div>
+                <div class="sinfo-container">
+                    <a href="/usedcars/{{car._id}}"> {{car.Years}} {{car.Brand}} {{car.Model}} {{car.VehicleType}}</a>
+                    <p class="carinfo">
+                        VIN: {{car.VIN}}<br>
+                        Exterior: {{car.Exterior}}<br>
+                        Interior: {{car.Interior}}<br>
+                        Timetomarket: {{car.Timetomarket}}<br>
+                        Style: {{car.Style}}<br>
+                        Mileage: {{car.Mileage}}<br>
+                        Price: {{car.Price}}<br>
+                        Usedcar: {{#if car.Usedcar}} Used {{else}} New {{/if}} <br>
+                    </p>
+                </div>
+             </div>
+		</div>
+  </div>
+</section>  

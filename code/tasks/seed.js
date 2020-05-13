@@ -223,7 +223,6 @@ car13 = {
     img: "car6.jpg"
 }
 
-
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
@@ -253,9 +252,8 @@ async function main() {
     console.log("add car11");
     const car12s = await newcar.addCars(car12);
     console.log("add car12");
-    const car13s = await newcar.addCars(car13);
-    console.log("add car13");
-    await posts.addPost('Audi Q8', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
+
+    await posts.addPost('Audi', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 
     // await posts.addPost(
