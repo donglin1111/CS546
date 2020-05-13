@@ -5,7 +5,7 @@ Run Application commands:
 
 $ npm install
 
-$ node ./tasks/seed.js
+$ npm run seed
 
 $ npm start
 
