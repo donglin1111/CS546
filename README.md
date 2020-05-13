@@ -8,3 +8,10 @@ $ npm install
 $ node ./tasks/seed.js
 
 $ npm start
+
+The Dealer Account login:
+
+Username: admin1, Password: admin1
+
+Username: admin2, Password: admin2
+
