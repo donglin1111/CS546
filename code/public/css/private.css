@@ -118,18 +118,18 @@ span {
 }
 
 .newcar p {
-    font-size: 10px;
+    font-size: 12px;
     color: #fff;
 }
 
 .newcar input {
     color: #999;
-    font-size: 1px;
+    font-size: 12px;
 }
 
 .newcar button {
     color: black;
-    font-size: 1px;
+    font-size: 12px;
 }
 
 .error-list {
@@ -168,4 +168,42 @@ span {
 .sinfo-container p {
     font-size: 15px;
     color: #fff;
+}
+
+.update p {
+    font-size: 12px;
+    color: #fff;
+}
+
+.update input {
+    color: #999;
+    font-size: 12px;
+}
+
+.update button {
+    color: black;
+    font-size: 12px;
+}
+
+.update select{
+    /* background-color: blue; */
+    color: black;
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
+}
+
+.delete p {
+    font-size: 12px;
+    color: #fff;
+}
+
+.delete input {
+    color: #999;
+    font-size: 12px;
+}
+
+.delete button {
+    color: black;
+    font-size: 12px;
 }
