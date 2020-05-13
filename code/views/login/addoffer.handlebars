@@ -14,32 +14,30 @@
 	</div>
 	<div class="user-panel">
 		<h2>Logged in as: {{{user.lastname}}}</h2>
-
-	<div class="w3-container w3-teal">
-  <article class="new-post">
-  <form action="/login/addoffer" method="POST" class="new-post-form">
-  <div class="offercontainer">
-  <div class="row">
-    <div class="col-25">
-      <label for="fname">Title</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="title" name="title" placeholder="Title.." value="{{post.title}}">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="subject">Information</label>
-    </div>
-    <div class="col-75">
-      <textarea id="body" name="body" placeholder="Write something.." style="height:200px">{{post.body}}</textarea>
-    </div>
-  </div>
-  <div class="row">
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
-  </div>
-</article>
+      <form action="/login/addoffer" method="POST" class="new-post-form">
+        <div class="offercontainer">
+          <div class="row">
+              <div class="col-25">
+                <label>Title</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="title" name="title" placeholder="Title.." value="{{post.title}}">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-25">
+                <label>Information</label>
+              </div>
+              <div class="col-75">
+                <textarea id="body" name="body" placeholder="Write something.." style="height:200px">{{post.body}}</textarea>
+              </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+          </div>
+        </div>
+        </form>
   {{#if hasErrors}}
   <ul class="error-list">
     {{#each errors}}
@@ -49,7 +47,6 @@
     {{/each}}
   </ul>
   {{/if}}
-		</div>
 	</div>
 	
  <script src="/public/js/private.js"></script>

@@ -5,9 +5,9 @@
       <div class="allcar-container">
       {{#each cars}}  
         {{#if Usedcar}}
-        <div class="newcar-container" value="{{_id}}">
+        <div class="newcar-container">
           <div class="img-container" >
-              <img src="/public/images/{{img}}"> 
+              <img src="/public/images/{{img}}" alt=""> 
           </div>
           <div class="info-container">
              <a href="/usedcars/{{_id}}"> {{Years}} {{Brand}} {{Model}} {{VehicleType}}</a>
