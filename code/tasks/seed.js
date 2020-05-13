@@ -60,7 +60,7 @@ car3 = {
     Price: "$142,995",
     Mileage: "5",
     img: "Porsche_WP0CB2A95KS136454.jpg",
-    Color: ["red"],
+    Color: "Red",
     Usedcar: false
 }
 car4 = {
@@ -138,6 +138,125 @@ car8 = {
     img: "2020_Bugatti_Chiron.jpg",
     Usedcar: false
 }
+<<<<<<< HEAD
+=======
+car9 = {
+    VIN: "YT9XC81B98A007346",
+    Brand: "Toyota",
+    Model: "CHR",
+    VehicleType: "Convertible",
+    Timetomarket: "08/12/2008",
+    Color: "Silver",
+    Years: "2018",    
+    Exterior: "Aerodynamic rear lower diffuser",   
+    Interior: "Automatic climate control system",
+    Style: "Covertible",
+    Price: "$ 70,500",
+    Mileage: "15",
+    Usedcar: false,
+    img: "img/car14.jpg"
+}
+
+car10 = {
+    VIN:"7J3ZZ56Y78230007",
+    Brand:"Tata",
+    Model:"Harrier",
+    VehicleType:"SUV", 
+    Timetomarket: "23/11/2020",
+    Color: "Beige",
+    Years: "2014",
+    Exterior: "Black",
+    Interior: "Brown",
+    Style: "SUV",
+    Price: "$ 32,450",
+    Mileage: "15", 
+    Usedcar: false,
+    img: "img/car5.jpg"
+}
+
+car11 = {
+    VIN:"7J3ZZ56Y78230006",
+    Brand:"Toyota",
+    Model:"4D Runner",
+    VehicleType:"SR5", 
+    Timetomarket: "06/11/2020",
+    Color: "Red",
+    Years: "2015",
+    Exterior: "Silver",
+    Interior: "Black",
+    Style: "SUV",
+    Price: "$ 42,450",
+    Mileage: "25",    
+    Usedcar: false,
+    img: "img/car4.jpg"
+}
+
+car12 ={
+    VIN:"7J3ZZ56Y78230005",
+    Brand:"Mercedes",
+    Model:"AMG",
+    VehicleType:"Coupe", 
+    Timetomarket: "07/12/2020",
+    Color: "Orange",
+    Years: "2008",
+    Exterior: "Silver",
+    Interior: "Black",
+    Style: "Coupe",
+    Price: "$ 1,30,000",
+    Mileage: "25",    
+    Usedcar: true,
+    img: "img/car3.jpg"
+}
+
+car13 = {
+    VIN:"7J3ZZ56Y782300040",
+    Brand:"Audi",
+    Model:"Q8",
+    VehicleType:"ABT", 
+    Timetomarket: "08/12/2020",
+    Color: "Black",
+    Years: "2008",
+    Exterior: "Silver",
+    Interior: "Black",
+    Style: "SUV",
+    Price: "$1,595,000",
+    Mileage: "25",    
+    Usedcar: true,
+    img: "img/car6.jpg"
+ }
+
+ car14 = {
+    VIN: "YT9XC81B98A007066",
+    Brand: "Koenigsegg",
+    Model: "CCX",
+    VehicleType: "CCX",
+    Timetomarket: "08/12/2008",
+    Years: "2008",
+    Exterior: "Silver",
+    Interior: "Blue",
+    Style: "Convertible",
+    Price: "$1,595,000",
+    Mileage: "30",
+    img: "Koenigsegg_YT9XC81B98A007066.jpg",
+    Usedcar: false
+}
+car15 = {
+    VIN: "SCBDG4ZG6LC076056",
+    Brand: "Bentley",
+    Model: "Continental",
+    VehicleType: "GT V8 Convertible",
+    Timetomarket: "01/12/2020",
+    Years: "2020",
+    Exterior: "Glacier White",
+    Interior: "Hotspur",
+    Style: "Convertible",
+    Price: "$271,805",
+    Mileage: "21",
+    img: "Bentley_SCBDG4ZG6LC076056.jpg",
+    Usedcar: false
+}
+
+>>>>>>> vrk-search-4
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
@@ -151,6 +270,16 @@ async function main() {
     const car6s = await newcar.addCars(car6);
     const car7s = await newcar.addCars(car7);
     const car8s = await newcar.addCars(car8);
+<<<<<<< HEAD
+=======
+    const car9s = await newcar.addCars(car9);
+    const car10s = await newcar.addCars(car10);
+    const car11s = await newcar.addCars(car11);
+    const car12s = await newcar.addCars(car12);
+    const car13s = await newcar.addCars(car13);
+    const car14s = await newcar.addCars(car14);
+    const car15s = await newcar.addCars(car15);
+>>>>>>> vrk-search-4
     await posts.addPost('Audi', "$750 Customer Cash + $750 Select Inventory Customer Cash + + $1,500 1st Three Month's Payment Ford Credit Bonus Cash");
     // await posts.addPost('Hello, class!', 'Today we are creating a blog!', [], id);
 

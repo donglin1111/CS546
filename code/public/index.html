@@ -6,7 +6,7 @@
     <title>Car Search</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="js/testdata.js"></script>
+    <script src="js/testdata.js"></script>    
     <script src="js/searchapp.js"></script>
     <link type="text/css" rel="stylesheet" href="css/searchcar.css">
 </head>
@@ -26,6 +26,8 @@
                 <p style="font-size:20px"><u> {{x.Brand}} </u></p><br><br>
                 <p><strong>Color:</strong> {{x.Color}}</p><br> <br>
                 <p><strong>VehicleType:</strong> {{x.VehicleType}}</p>
+                <p><strong>Exterior:</strong> {{x.Exterior}}</p>
+                <p><strong>Interior:</strong> {{x.Interior}}</p>
                 <span data-ng-repeat="m in x.features">
               {{ m }}
             </span>
