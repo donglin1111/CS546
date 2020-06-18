@@ -19,7 +19,7 @@
     },
     "homepage": "https://github.com/donglin1111/CS546#readme",
     "dependencies": {
-        "angular": "^1.7.9",
+        "angular": "^1.8.0",
         "bcryptjs": "^2.4.3",
         "express": "^4.17.1",
         "express-handlebars": "^4.0.3",
